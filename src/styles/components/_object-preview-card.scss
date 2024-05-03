@@ -1,0 +1,135 @@
+:root {
+  --object-preview-card-main-color: #dedede;
+  --object-preview-card-border-radius: 5px;
+}
+
+.object-preview-card {
+  @extend .flex-column;
+  border: 1px solid var(--object-preview-card-main-color);
+  border-radius: var(--object-preview-card-border-radius);
+
+  &__header {
+    position: relative;
+
+    @extend .flex-centered-content;
+    height: 220px;
+    background-color: var(--object-preview-card-main-color);
+    border-radius: var(--object-preview-card-border-radius) var(--object-preview-card-border-radius) 0 0;
+    overflow: hidden;
+
+    img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+
+    .lw-no-image {
+      object-fit: contain;
+      width: 80px;
+      height: auto;
+    }
+
+    &::after {
+      position: absolute;
+      bottom: 0;
+      left: -1px;
+      width: 100px;
+      height: 35px;
+
+      content: '';
+
+      border-radius: 0 5px 0 0;
+      border: 1px solid var(--object-preview-card-main-color);
+      background-color: #ffffff;
+
+      background-image: url("../assets/img/icon-logo.svg");
+      background-size: 54px auto;
+      background-repeat: no-repeat;
+      background-position: center;
+      z-index: 2;
+    }
+  }
+
+  &__content {
+    @extend .flex-column;
+    padding: 20px;
+    flex-grow: 1;
+    gap: 10px;
+  }
+
+  &__station {
+    @extend .flex-column;
+    gap: 10px;
+
+    &-btn {
+      width: fit-content;
+    }
+  }
+
+  &__station-list {
+    @extend .list-reset;
+
+    &-item {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+
+      &:not(:last-child) {
+        margin-bottom: 10px;
+      }
+
+      &-side {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        min-width: 75px;
+
+        img {
+          height: 14px;
+          width: auto;
+          object-fit: contain;
+        }
+      }
+
+      &--hidden {
+        display: none;
+      }
+    }
+  }
+
+  table {
+    width: 100%;
+    padding-top: 20px;
+    margin: 10px 0;
+    border-top: 1px solid var(--object-preview-card-main-color);
+
+
+    td {
+      padding: 5px 0;
+
+      &:last-child {
+        text-align: right;
+      }
+    }
+
+    thead {
+      color: var(--dark);
+    }
+
+    tbody td {
+      &:first-child {
+        color: var(--light)
+      }
+
+      &:last-child {
+        text-decoration: underline;
+
+        color: var(--success);
+      }
+    }
+  }
+
+  &__detail-link {
+    margin-top: auto;
+  }
+}

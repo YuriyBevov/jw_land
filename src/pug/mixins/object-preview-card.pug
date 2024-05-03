@@ -1,0 +1,55 @@
+include ./lw-btn
+
+mixin object-preview-card(data)
+  .object-preview-card
+    .object-preview-card__header
+      img(class= data.img ? '' : 'lw-no-image' src=`./assets/img/${data.img ? data.img : 'icon-no-image.svg'}` alt="Объект" width= data.img ? '360' : '100' height= data.img ? '220' : '100')
+
+    .object-preview-card__content
+      if data.title
+        span.lw-text.lw-text--md.lw-text--semi!= data.title
+      if data.small
+        small.lw-text.lw-text--light!= data.small
+      if data.address
+        span.lw-text!= data.address
+
+      .object-preview-card__station
+        ul.object-preview-card__station-list
+          each station, index in data.stations
+
+            li.object-preview-card__station-list-item(class= index > 1 ? 'object-preview-card__station-list-item--hidden' : null)
+              .object-preview-card__station-list-item-side
+                img(src="./assets/img/icon-metro.svg" alt= station.name width="" height="")
+                span.lw-text.lw-text--semi!= station.name
+              .object-preview-card__station-list-item-side
+                span.lw-text.lw-text--light!= station.ambulationTime
+                img(src=`./assets/img/${station.ambulationTypeIcon}` alt= station.ambulationTypeName width= station.ambulationTypeIconWidth height= station.ambulationTypeIconHeight)
+
+        each station, index in data.stations
+          if index > 1 && index < 3
+            +lw-btn({
+              cls: 'lw-simple-btn lw-simple-btn--success-color object-preview-card__station-btn',
+              tag: 'button',
+              text: 'Показать еще...',
+            })
+      table
+        thead
+          tr
+            td Найдено:
+            td Кол-во:
+
+        tbody
+          tr
+            td Студия от 3.44 млн руб.
+            td 13
+          tr
+            td 1 кк от 244.24 млн руб
+            td 1300
+
+      +lw-btn({
+        cls: 'lw-main-btn lw-main-btn--outlined object-preview-card__detail-link',
+        tag: 'a',
+        href: 'object-detail.html',
+        text: 'Квартиры',
+      })
+

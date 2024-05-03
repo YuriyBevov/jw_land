@@ -1,0 +1,135 @@
+.lw-multiple-checker {
+  position: relative;
+
+  width: 100%;
+  max-width: 500px;
+
+  &-panel {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+
+    min-height: 38px;
+    border-radius: 6px;
+    border: 1px solid #dedede;
+    padding: 8px 16px;
+    padding-right: 50px;
+    cursor: pointer;
+
+    &::after {
+      position: absolute;
+      top: 11px;
+      right: 16px;
+      content: '';
+      width: 16px;
+      height: 16px;
+      background-image: url("../assets/img/icon-burger.svg");;
+      background-repeat: no-repeat;
+      background-size: 16px;
+      background-position: center;
+    }
+
+    label {
+      border: none;
+      border-radius: 3px;
+      background-color: #dedede;
+      padding: 3px 6px;
+
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+      line-height: 1;
+
+      width: fit-content;
+      height: fit-content;
+
+      cursor: pointer;
+
+      position: relative;
+      padding-left: 20px;
+
+      &::before {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 5px;
+
+        width: 10px;
+        height: 10px;
+
+        content: '';
+
+        background-image: url("../assets/img/icon-close-2.svg");
+        background-position: center;
+        background-size: 10px;
+        background-repeat: no-repeat;
+      }
+    }
+  }
+
+  &-container {
+    position: absolute;
+
+    top: calc(100% + 2px);
+    left: 0;
+
+    width: 100%;
+    padding: 10px 16px;
+
+    border-radius: 6px;
+    border: 1px solid #dedede;
+    background-color: #ffffff;
+    z-index: 10;
+
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    visibility: hidden;
+    opacity: 0;
+
+    input {
+      display: none;
+    }
+
+    label {
+      font-size: 16px;
+      font-weight: 400;
+      color: #333333;
+      white-space: nowrap;
+      background-color: #dedede;
+      cursor: pointer;
+
+      border-radius: 3px;
+      padding: 8px 10px;
+
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 160px;
+
+      transition: all .1s ease-in;
+    }
+
+    @media(hover: hover) {
+      label:hover,
+      label:focus {
+        color: #ffffff;
+        background-color: #4caf50;
+      }
+    }
+
+    input:checked + label {
+      color: #ffffff;
+      background-color: #4caf50;
+    }
+  }
+
+  &-panel.is-open + .lw-multiple-checker-container {
+    visibility: visible;
+    opacity: 1;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  }
+
+
+
+}

@@ -1,0 +1,28 @@
+.user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  &-avatar {
+    width: 60px;
+    height: 60px;
+  }
+
+  &-name {
+
+  }
+
+  &-mail,
+  &-phone {
+    a {
+      color: var(--success);
+    }
+  }
+
+  &-content {
+    @extend .flex-column;
+    gap: 5px;
+
+
+  }
+}

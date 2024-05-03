@@ -1,0 +1,5 @@
+mixin lw-textarea(data)
+  .lw-textarea
+    if data.label
+      label(for= data.id).lw-textarea-title!= data.label
+    textarea(id= data.id)

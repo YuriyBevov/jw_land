@@ -1,0 +1,4 @@
+mixin lw-checkbox(data)
+  .lw-main-checkbox(class = data.cls ? data.cls : null)
+    input(type="checkbox" id= data.id)
+    label(for= data.id)!= data.label

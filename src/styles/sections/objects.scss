@@ -1,0 +1,17 @@
+.objects {
+  .sort {
+    margin-bottom: var(--main-offset);
+  }
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: var(--main-offset);
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: clamp(20px, 2vw, 30px);
+  }
+}

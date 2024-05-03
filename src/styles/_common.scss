@@ -1,0 +1,50 @@
+.lw {
+  &-container {
+    margin: 0 auto;
+    padding: 0 var(--container-offset);
+    max-width: var(--container-width);
+
+    @media(max-width: 620px) {
+      padding: 20px;
+    }
+  }
+
+  &-text {
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--base-text-color);
+
+    &--md {
+      font-size: 24px;
+    }
+
+    &--sm {
+      font-size: 14px;
+    }
+
+    &--light {
+      color: var(--light);
+    }
+
+    &--success {
+      color: var(--success);
+    }
+
+    &--info {
+      color: var(--info);
+    }
+
+    &--reg {
+      font-weight: 400;
+    }
+    &--medi {
+      font-weight: 500;
+    }
+    &--semi {
+      font-weight: 600;
+    }
+    &--bold {
+      font-weight: 700;
+    }
+  }
+}

@@ -1,0 +1,36 @@
+include lw-control-group
+
+mixin main-section(data)
+    section.lw-section
+        .lw-container.lw-section-container 
+            span.lw-title= data.title 
+
+            if data.sectionRows 
+                each row of data.sectionRows
+                    if row.cols == 2
+                        .lw-section-row(class= row.modifier ? row.modifier : null)
+                            if row.title 
+                                span.lw-title!= row.title
+                                    if row.titleNote
+                                        span!= " " + row.titleNote
+                            .lw-section-row-col(class= row.colModifier ? row.colModifier : null)
+                                each group of row.controlGroups
+                                    each ctrls of group.controlsGroup
+                                        +lw-control-group(ctrls, group.modifier ? group.modifier : null)
+                                    
+                                             
+                            .lw-section-row-col(class= row.col2Modifier ? row.col2Modifier : null)
+                                each group of row.controlGroups2
+                                    each ctrls of group.controlsGroup
+                                        +lw-control-group(ctrls, group.modifier ? group.modifier : null)
+                   
+                    else
+                        .lw-section-row(class= row.modifier ? row.modifier : null)
+                            if row.title 
+                                span.lw-title!= row.title
+                                    if row.titleNote
+                                        span!= " " + row.titleNote
+                            each group of row.controlGroups
+                                each ctrls of group.controlsGroup
+                                    +lw-control-group(ctrls, group.modifier ? group.modifier : null)
+            

@@ -1,0 +1,7 @@
+mixin lw-controls-with-desc(data)
+    .lw-controls-with-desc(class= data.modifier ? data.modifier : null)
+        span!= data.text
+
+        .lw-controls-wrapper
+            each ctrls of data.groups
+                +lw-control-group(ctrls)

@@ -1,0 +1,9 @@
+mixin lw-multiple-checker(data)
+  .lw-multiple-checker
+
+    .lw-multiple-checker-panel
+
+    .lw-multiple-checker-container
+      each elem of data.elems
+        input(type="checkbox" id= elem.id)
+        label(for= elem.id)!= elem.label

@@ -1,0 +1,11 @@
+mixin lw-select(data)
+    if data.options
+        .lw-select
+            if data.text
+                small!= data.text
+            select.custom-select
+                each value in data.options
+                    option(value= value)= value
+            
+            if data.note
+                small!= data.note

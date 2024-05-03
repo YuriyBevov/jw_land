@@ -1,0 +1,61 @@
+:root {
+    --lw-simple-btn-success-color: #4caf50;
+    --lw-simple-btn-info-color: #3a8efa;
+    --lw-simple-btn-light-color: #757575;
+
+    --lw-simple-btn-font-size: 14px;
+    --lw-simple-btn-font-weight: 400;
+
+    --lw-simple-btn-padding: 0;
+    --lw-simple-btn-bg: transparent;
+}
+
+.lw-simple-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+
+    font-size: var(--lw-simple-btn-font-size);
+    font-weight: var(--lw-simple-btn-font-weight);
+
+    border: none;
+    padding: var(--lw-simple-btn-padding);
+    background-color: var(--lw-simple-btn-bg);
+
+    cursor: pointer;
+
+    &--success-color {
+        color: var(--lw-simple-btn-success-color);
+
+        span {
+            padding-bottom: 2px;
+            text-decoration: underline;
+        }
+    }
+
+    &--info-color {
+        color: var(--lw-simple-btn-info-color);
+
+        span {
+            padding-bottom: 2px;
+            text-decoration: underline;
+        }
+    }
+
+    &--light-color {
+        color: var(--lw-simple-btn-light-color);
+
+        span {
+            padding-bottom: 2px;
+            text-decoration: underline;
+        }
+    }
+
+    img {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        object-fit: contain;
+    }
+}

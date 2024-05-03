@@ -1,0 +1,14 @@
+mixin lw-media(data)
+    .lw-media
+        .lw-media__grid
+            if data.photos
+                each photo in data.photos
+                    .lw-media__grid-item(class= photo.isCover ? 'is-cover' : null)
+                        img(src=`./assets/img/${photo.img}` alt="Описание фото" width="180" height="180")
+                        if photo.isChecker
+                            input(type="checkbox" checked= photo.isChecked ? true : false id= photo.id)
+                            label(for= photo.id aria-label="Выбрать фото")
+
+            .lw-media__grid-item
+                button(type="button" aria-label="Добавить").lw-main-btn.lw-main-btn--media
+                    img(src="./assets/img/icon-add-media.svg" alt="Описание фото" width="180" height="180")

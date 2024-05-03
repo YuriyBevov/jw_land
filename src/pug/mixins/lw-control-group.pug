@@ -1,0 +1,66 @@
+include lw-radio-btn
+include lw-btn
+include lw-controls-with-desc
+include lw-switcher
+include lw-main-input
+include lw-textarea
+include lw-logo
+include lw-select
+include lw-multiple
+include lw-simple-text
+include lw-media
+include lw-note
+include lw-multiple-checker
+include lw-checkbox
+include lw-checkbox-group
+
+mixin lw-control-group(ctrls, modifier = null)
+    .lw-control-group(class = modifier ? modifier : null)
+        each ctrl of ctrls
+            if ctrl.type == 'group-title'
+                span.lw-control-group-title!= ctrl.text
+
+            if ctrl.type == 'radio'
+                +lw-radio-btn(ctrl)
+
+            if ctrl.type == 'controls-with-desc'
+                +lw-controls-with-desc(ctrl)
+
+            if ctrl.type == 'button'
+                +lw-btn(ctrl)
+
+            if ctrl.type == 'switcher'
+                +lw-switcher(ctrl)
+
+            if ctrl.type == 'text'
+                +lw-main-input(ctrl)
+
+            if ctrl.type == 'textarea'
+                +lw-textarea(ctrl)
+
+            if ctrl.type == 'logo'
+                +lw-logo(ctrl)
+
+            if ctrl.type == 'select'
+                +lw-select(ctrl)
+
+            if ctrl.type == 'multiple'
+                +lw-multiple(ctrl)
+
+            if ctrl.type == 'simple-text'
+                +lw-simple-text(ctrl)
+
+            if ctrl.type == 'media'
+                +lw-media(ctrl)
+
+            if ctrl.type == 'note'
+                +lw-note(ctrl)
+
+            if ctrl.type == 'multiple-checker'
+                +lw-multiple-checker(ctrl)
+
+            if ctrl.type == 'checkbox'
+                +lw-checkbox(ctrl)
+
+            if ctrl.type == 'checkbox-group'
+                +lw-checkbox-group(ctrl)

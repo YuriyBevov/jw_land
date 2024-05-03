@@ -1,0 +1,5 @@
+mixin lw-checkbox-group(data)
+  .lw-checkbox-group
+    .lw-checkbox-group__header
+      +lw-checkbox({ type: 'checkbox', label: data.mainCheckboxLabel, id: data.mainCheckboxId, cls: 'lw-checkbox-group-head-control' },)
+    +lw-control-group(data.checkboxes)

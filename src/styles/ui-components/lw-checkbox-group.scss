@@ -1,0 +1,14 @@
+.lw-checkbox-group {
+  width: 100%;
+  max-width: 1000px;
+
+  &__header {
+    margin-bottom: 15px;
+  }
+
+  .lw-control-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 10px 20px;
+  }
+}
