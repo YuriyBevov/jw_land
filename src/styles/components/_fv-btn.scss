@@ -21,10 +21,4 @@
     text-decoration: underline;
     color: var(--success);
   }
-
-  @media(max-width: 1140px) {
-    span:not(.fv-btn-count) {
-      display: none;
-    }
-  }
 }

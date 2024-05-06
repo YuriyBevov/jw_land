@@ -37,7 +37,7 @@
       background-color: transparent;
       padding-right: 50px;
       width: 100%;
-      max-width: 500px;
+      // max-width: 500px;
 
       position: relative;
 
@@ -49,7 +49,7 @@
         content: '';
         width: 16px;
         height: 16px;
-        background-image: url("../assets/img/icon-burger.svg");;
+        background-image: url("../assets/img/icon-arrow-down.svg");;
         background-repeat: no-repeat;
         background-size: 16px;
         background-position: center;
@@ -61,7 +61,7 @@
       width: 100%;
       transition: none !important;
       min-width: fit-content;
-      max-width: 500px;
+      // max-width: 500px;
       padding: 0;
 
       background-color: #ffffff;

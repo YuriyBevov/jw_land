@@ -17,6 +17,10 @@
     @include m-b-tablet-lg-down {
       max-width: fit-content;
     }
+
+    @include m-b-mobile-lg-down {
+      display: none;
+    }
   }
 
   &__contacts {
@@ -32,7 +36,7 @@
   .fv-btn {
     margin: 0 auto;
 
-    @include m-b-laptop-down {
+    @include m-b-down(1140px) {
       display: none;
     }
   }
@@ -40,5 +44,26 @@
   .user {
     max-width: 270px;
     margin-left: auto;
+
+    @include m-b-tablet-down {
+      display: none;
+    }
+  }
+
+  &__menu,
+  &__menu-overlay {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    gap: 20px;
+  }
+
+  .burger {
+    display: none;
+    margin-left: auto;
+
+    @include m-b-tablet-down {
+      display: flex;
+    }
   }
 }

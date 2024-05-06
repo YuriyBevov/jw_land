@@ -1,0 +1,6 @@
+.burger {
+  @extend .btn-reset;
+  @extend .flex-centered-content;
+
+  cursor: pointer;
+}

@@ -13,5 +13,13 @@
     display: grid;
     grid-template-columns: repeat(3,1fr);
     gap: clamp(20px, 2vw, 30px);
+
+    @include m-b-tablet-lg-down {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include m-b-tablet-down {
+      grid-template-columns: 1fr;
+    }
   }
 }
