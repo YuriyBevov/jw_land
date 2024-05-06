@@ -9,17 +9,14 @@ header.main-header
       imgWidth: '125'
     })
 
-    small.main-header__desc Агентство недвижимости Какое то название агентства недвижимости
+    small.main-header__desc.lw-text.lw-text--sm.lw-text--light Агентство недвижимости <br>Какое то название агентства недвижимости
 
     .main-header__contacts
       a(href="tel:88129815617").lw-text 8 812 981-56-17
       a(href="mailto:info-email@mail.ru").lw-text.lw-text--sm.lw-text--success info-email@mail.ru
       a(href="https://joywork.ru/").lw-text.lw-text--sm.lw-text--info https://joywork.ru/
 
-    button(type="button").fv-btn
-      img(src="../assets/img/icon-heart.svg" alt="Избранное" width="20" height="20")
-      span Избранное
-      span.fv-btn-count 101
+    include ../components/fv-btn
 
     .user
       img(src="../assets/img/user-avatar.png" alt="Аватар" width="60" height="60").user-avatar
@@ -29,4 +26,5 @@ header.main-header
         span.user-phone.lw-text.lw-text--sm.lw-text--light Телефон: <a href="tel:+79999999999">+7 (999) 999 99 99</a>
         span.user-mail.lw-text.lw-text--sm.lw-text--light Почта: <a href="mailto:info-email@mail.ru">info-email@mail.ru</a>
 
+    
 

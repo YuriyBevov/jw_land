@@ -427,7 +427,7 @@ template {
   --dark: #333333;
   --light: #7d7d7d;
   --lightgray: #dedede;
-  --gray: #757575;
+  --gray: #dedede;
   --success: #4caf50;
   --info: #3a8efa;
   --base-text-color: var(--dark);
@@ -534,7 +534,7 @@ a {
   flex-wrap: wrap;
 }
 
-.flex-centered-content, .object-preview-card__header {
+.flex-centered-content, .object-preview-card__header, .fv-btn {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -546,7 +546,7 @@ a {
   justify-content: center;
 }
 
-.flex-column, .user-content, .object-preview-card__station, .object-preview-card__content, .object-preview-card {
+.flex-column, .user-content, .object-preview-card__station, .object-preview-card__content, .object-preview-card, .main-header__contacts {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -586,7 +586,7 @@ a {
   border: 0;
 }
 
-.btn-reset {
+.btn-reset, .fv-btn {
   border: none;
   padding: 0;
   background: transparent;
@@ -679,9 +679,71 @@ a {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  gap: 20px;
+}
+.main-header .lw-logo {
+  margin-right: 10px;
+}
+.main-header__desc {
+  max-width: 200px;
+}
+@media (max-width: 959px) {
+  .main-header__desc {
+    max-width: -webkit-fit-content;
+    max-width: -moz-fit-content;
+    max-width: fit-content;
+  }
+}
+.main-header__contacts {
+  gap: 5px;
+  margin: 0 auto;
+}
+@media (max-width: 959px) {
+  .main-header__contacts {
+    display: none;
+  }
+}
+.main-header .fv-btn {
+  margin: 0 auto;
+}
+@media (max-width: 1023px) {
+  .main-header .fv-btn {
+    display: none;
+  }
+}
+.main-header .user {
+  max-width: 270px;
+  margin-left: auto;
 }
 
 /* Компоненты */
+.fv-btn {
+  gap: 8px;
+  width: 100%;
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+  padding: 8px 10px 6px;
+  background: -webkit-gradient(linear, left top, left bottom, from(#FEFEFE), to(#F6F6F6));
+  background: linear-gradient(180deg, #FEFEFE 0%, #F6F6F6 100%);
+  border: 1px solid var(--gray);
+  border-radius: 3px;
+}
+.fv-btn span {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--light);
+}
+.fv-btn span.fv-btn-count {
+  text-decoration: underline;
+  color: var(--success);
+}
+@media (max-width: 1140px) {
+  .fv-btn span:not(.fv-btn-count) {
+    display: none;
+  }
+}
+
 .lw-select {
   display: -webkit-box;
   display: -ms-flexbox;

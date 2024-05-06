@@ -1,0 +1,30 @@
+.fv-btn {
+  @extend .btn-reset;
+  @extend .flex-centered-content;
+  gap: 8px;
+
+  width: 100%;
+  max-width: fit-content;
+  padding: 8px 10px 6px;
+
+  background: linear-gradient(180deg, #FEFEFE 0%, #F6F6F6 100%);
+  border: 1px solid var(--gray);
+  border-radius: 3px;
+
+  span {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--light);
+  }
+
+  span.fv-btn-count {
+    text-decoration: underline;
+    color: var(--success);
+  }
+
+  @media(max-width: 1140px) {
+    span:not(.fv-btn-count) {
+      display: none;
+    }
+  }
+}

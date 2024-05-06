@@ -4,5 +4,41 @@
   &__container {
     display: flex;
     align-items: center;
+    gap: 20px;
+  }
+
+  .lw-logo {
+    margin-right: 10px;
+  }
+
+  &__desc {
+    max-width: 200px;
+
+    @include m-b-tablet-lg-down {
+      max-width: fit-content;
+    }
+  }
+
+  &__contacts {
+    @extend .flex-column;
+    gap: 5px;
+    margin: 0 auto;
+
+    @include m-b-tablet-lg-down {
+      display: none;
+    }
+  }
+
+  .fv-btn {
+    margin: 0 auto;
+
+    @include m-b-laptop-down {
+      display: none;
+    }
+  }
+
+  .user {
+    max-width: 270px;
+    margin-left: auto;
   }
 }
