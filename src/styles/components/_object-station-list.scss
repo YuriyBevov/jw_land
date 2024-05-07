@@ -1,0 +1,39 @@
+.object-station {
+  @extend .flex-column;
+  gap: 10px;
+
+  &-list {
+    @extend .list-reset;
+
+    &-item {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+
+      &:not(:last-child) {
+        margin-bottom: 10px;
+      }
+
+      &-side {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        min-width: 75px;
+
+        img {
+          height: 14px;
+          width: auto;
+          object-fit: contain;
+        }
+      }
+
+      &--hidden {
+        display: none;
+      }
+    }
+
+    &-btn {
+      width: fit-content;
+    }
+  }
+}

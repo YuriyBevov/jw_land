@@ -1,0 +1,43 @@
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--main-offset);
+  margin: 30px 0;
+
+  &-wrapper {
+    display: flex;
+    gap: 10px;
+  }
+
+  &-btn {
+    @extend .btn-reset;
+    @extend .flex-centered-content;
+    width: 36px;
+    height: 36px;
+    padding: 10px;
+    border: 1px solid var(--lightgray);
+    border-radius: 3px;
+    color: var(--light);
+
+    transition: color var(--main-transition),
+      border-color var(--main-transition);
+
+    svg {
+      fill: var(--light);
+      transition: fill var(--main-transition);
+    }
+
+    &:hover,
+    &:focus,
+    &:active,
+    &.current {
+      border-color: var(--success);
+      color: var(--success);
+
+      svg {
+        fill: var(--success);
+      }
+    }
+  }
+}

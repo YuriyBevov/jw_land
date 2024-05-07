@@ -1,12 +1,12 @@
 include ../mixins/object-preview-card
 
 section.objects
-  .lw-container
+  .lw-container.objects__container
     include ../components/sort
     .objects__header
       span.lw-text.lw-text--md Для вас подобрано 120 объектов
       +lw-btn({
-        cls: 'lw-simple-btn lw-simple-btn--success-color',
+        cls: 'lw-simple-btn lw-simple-btn--success-color ymaps-opener',
         tag: 'button',
 
         text: 'Посмотреть на карте',
@@ -15,8 +15,8 @@ section.objects
         iconHeight: '24',
       })
 
-    .object-map
-      //#yMaps
+    .objects__map
+      #yMaps
 
     .objects__grid
       +object-preview-card({

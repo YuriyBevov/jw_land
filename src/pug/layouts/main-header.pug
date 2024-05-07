@@ -9,25 +9,10 @@ header.main-header
       imgWidth: '125'
     })
 
-    small.main-header__desc.lw-text.lw-text--sm.lw-text--light Агентство недвижимости <br>Какое то название агентства недвижимости
-
-    .main-header__menu
-      .main-header__menu-overlay
-        .main-header__contacts
-          a(href="tel:88129815617").lw-text 8 812 981-56-17
-          a(href="mailto:info-email@mail.ru").lw-text.lw-text--sm.lw-text--success info-email@mail.ru
-          a(href="https://joywork.ru/").lw-text.lw-text--sm.lw-text--info https://joywork.ru/
-
-        include ../components/fv-btn
-
-        .user
-          img(src="../assets/img/user-avatar.png" alt="Аватар" width="60" height="60").user-avatar
-
-          .user-content
-            span.lw-text.lw-text--sm Ваш менеджер <span class="user-name">Константинов Константин</span>
-            span.user-phone.lw-text.lw-text--sm.lw-text--light Телефон: <a href="tel:+79999999999">+7 (999) 999 99 99</a>
-            span.user-mail.lw-text.lw-text--sm.lw-text--light Почта: <a href="mailto:info-email@mail.ru">info-email@mail.ru</a>
-
+    include ../components/company-slogan
+    include ../components/header-contacts
+    include ../components/fv-btn
+    include ../components/user
     include ../components/burger
 
 

@@ -1,0 +1,26 @@
+.lw-fv-btn {
+  @extend .btn-reset;
+  @extend .flex-centered-content;
+
+  width: fit-content;
+  min-width: 40px;
+  height: 40px;
+  min-width: 40px;
+  background-image: url("../assets/img/icon-heart-gray.svg");
+  background-repeat: no-repeat;
+  background-size: 24px;
+  background-position: left;
+
+  &--simple {
+    background-position: center;
+  }
+
+  span {
+    white-space: nowrap;
+    padding-left: 32px;
+  }
+
+  &.active {
+    background-image: url("../assets/img/icon-heart-red-filled.svg");
+  }
+}

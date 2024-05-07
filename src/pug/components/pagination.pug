@@ -1,0 +1,41 @@
+include ../mixins/lw-select
+
+.pagination
+  +lw-select({
+    cls: 'lw-pagination-select',
+    mainCls: 'custom-pagination-select',
+    options: [
+      '1',
+      '2',
+      '3',
+      '4',
+      '5',
+      '6'
+    ]
+  })
+
+  .pagination-wrapper
+    button(type="button").pagination-btn
+      svg(width="16" height="16")
+        use(xlink:href="./assets/sprite.svg#icon-double-arr-l")
+    button(type="button").pagination-btn
+      svg(width="16" height="16")
+        use(xlink:href="./assets/sprite.svg#icon-arr-l")
+
+    button(type="button").pagination-btn 1
+
+    button(type="button").pagination-btn 2
+
+    button(type="button").pagination-btn.current 3
+
+    button(type="button").pagination-btn 4
+
+    button(type="button").pagination-btn
+      svg(width="16" height="16")
+        use(xlink:href="./assets/sprite.svg#icon-arr-r")
+    button(type="button").pagination-btn
+      svg(width="16" height="16")
+        use(xlink:href="./assets/sprite.svg#icon-double-arr-r")
+
+
+

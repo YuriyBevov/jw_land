@@ -10,14 +10,20 @@
 @import "layout/main-header";
 
 /* Компоненты */
+@import "components/img-frame";
+@import "components/ymaps";
 @import "components/fv-btn";
 @import "components/burger";
+@import "components/breadcrumbs";
 @import "ui-components/lw-select";
 @import "ui-components/lw-main-btn";
+@import "ui-components/lw-fv-btn";
 @import "ui-components/lw-simple-btn";
 @import "components/sort";
+@import "components/pagination";
 @import "components/object-preview-card";
 @import "components/user";
+@import "components/object-station-list";
 
 // @import "ui-components/lw-radio-btn";
 //
@@ -34,6 +40,5 @@
 
 /* Секции */
 @import "sections/objects";
+@import "sections/object-detail";
 /* Модальные окна */
-
-

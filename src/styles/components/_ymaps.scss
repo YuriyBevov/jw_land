@@ -1,0 +1,41 @@
+#yMaps {
+  width: auto;
+  height: 100%;
+  min-height: 450px;
+
+  .ymaps-icon-content-layout {
+    width: fit-content;
+    font-size: 12px;
+    line-height: 1;
+    font-weight: 600;
+    white-space: nowrap;
+    padding: 5px;
+    box-shadow: 0px 4px 10px rgba(100, 94, 112, 0.3);
+    border-radius: 6px;
+    color: var(--text-color);
+    background-color: var(--white);
+    display: none;
+  }
+
+  .zoom-btns {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    width: 100px;
+
+    button {
+      @extend .btn-reset;
+      @extend .flex-centered-content;
+      width: 40px;
+      height: 40px;
+      margin: 0 5px;
+      box-shadow: 0px 4px 10px rgba(100, 94, 112, 0.3);
+      border-radius: 6px;
+      background-color: var(--white);
+
+      &:active {
+        background-color: var(--accent);
+      }
+    }
+  }
+}

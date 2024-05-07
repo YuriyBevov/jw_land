@@ -1,0 +1,123 @@
+include ../mixins/lw-fv-btn
+include ../mixins/img-frame
+include ../mixins/object-station-list
+
+section.object-detail
+  .lw-container.object-detail__container
+    p slider
+    .object-detail__main
+
+      .object-detail__main-top
+        +lw-btn({
+          cls: 'lw-simple-btn lw-simple-btn--success-color',
+          tag: 'button',
+
+          text: 'На карте',
+          icon: 'icon-map.svg',
+          iconWidth: '24',
+          iconHeight: '24',
+        })
+
+        +lw-fv-btn({
+          state: false,
+          text: true
+        })
+
+
+      span.lw-text.lw-text--md.lw-text--semi Просторный ЖК бизнес-класса “Белые ночи” у Пресненской набережной
+      small.lw-text.lw-text--light Чкаловский Нагатинская набережная Судостроительной улицы район
+      span.lw-text г. Москва, просп. Центральный проезд Хорошевского Серебряного Бора, д.1455550, стр. 145, д. 123, к. 1234
+
+      +object-station-list(
+        [
+          {
+            name: 'Волгоградский проспект',
+            ambulationTime: '20 мин',
+            ambulationTypeName: 'пешком',
+            ambulationTypeIcon: 'icon-man.svg',
+            ambulationTypeIconWidth: '14',
+            ambulationTypeIconHeight: '14'
+          },
+
+          {
+            name: 'Волгоградский проспект',
+            ambulationTime: '20 мин',
+            ambulationTypeName: 'пешком',
+            ambulationTypeIcon: 'icon-man.svg',
+            ambulationTypeIconWidth: '14',
+            ambulationTypeIconHeight: '14'
+          },
+
+          {
+            name: 'Волгоградский проспект',
+            ambulationTime: '20 мин',
+            ambulationTypeName: 'пешком',
+            ambulationTypeIcon: 'icon-man.svg',
+            ambulationTypeIconWidth: '14',
+            ambulationTypeIconHeight: '14'
+          },
+        ]
+      )
+
+    .object-detail__desc
+      span.lw-text.lw-text--md.lw-text--bold.object-detail__title Описание ЖК
+      p.lw-text.lw-text--light
+        | Идею сочетания городской застройки с общественными зданиями и предприятиями социального назначения начали внедрять давно, но лишь появление жилых комплексов позволило приблизить многие услуги к людям.<br>
+        | В идеале итогом строительства жилых комплексов становится оптимальное сочетание жилых помещений (квартир) и нежилых площадей, предназначенных для комплексного бытового обслуживания их жителей.<br>
+        | Естественно, что жилые комплексы могут сильно различаться по наличию дополнительных услуг и уровню предоставляемого комфорта – каждый из них решает свою градостроительную задачу.
+
+    include ../components/sort
+
+    .object-detail__list
+      span.lw-text.lw-text--md.lw-text--bold.object-detail__title Квартиры в комплексе
+      .lw-table-wrapper
+        table
+          thead
+            tr
+              td Планировка
+              td Корпус
+              td Срок сдачи
+              td № кв
+              td Тип
+              td Этаж
+              td Общая площадь
+              td Стоимость, руб.
+              td Отделка
+              td
+
+          tbody
+            tr
+              td
+                +img-frame({
+                  img: 'object-preview-1.png'
+                })
+              td Дом 53
+              td Сдан - 4 кв. 2021г.
+              td 1150
+              td 1 ккв
+              td 25/25
+              td 1500. 54
+              td 555 555 555
+              td Без отделки
+              td
+                +lw-fv-btn({state: false})
+
+            tr
+              td
+                +img-frame({
+                  img: 'object-preview-2.png'
+                })
+              td Дом 53
+              td Сдается - 4 кв. 2021г.
+              td 1150
+              td 1 ккв
+              td 25/25
+              td 1500. 54
+              td 555 555 555
+              td Без отделки
+              td
+                +lw-fv-btn({state: true})
+
+      include ../components/pagination
+
+

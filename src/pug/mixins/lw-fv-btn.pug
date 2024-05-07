@@ -1,0 +1,4 @@
+mixin lw-fv-btn(data)
+  button(type="button" class= data.state ? 'active' : '' aria-label="Избранное" class= data.text ? '' : 'lw-fv-btn--simple').lw-fv-btn
+    if data.text
+      span.lw-text.lw-text--light В избранное

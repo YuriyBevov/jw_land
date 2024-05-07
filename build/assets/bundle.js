@@ -11,15 +11,25 @@
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var custom_select__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! custom-select */ "./node_modules/custom-select/build/index.js");
 
-const items = document.querySelectorAll('.custom-select');
+const items = document.querySelectorAll(".custom-select");
 if (items) {
   items.forEach(item => {
     (0,custom_select__WEBPACK_IMPORTED_MODULE_0__["default"])(item);
   });
-  const firstItems = document.querySelectorAll('.custom-select-panel .custom-select-option:first-child');
+  const firstItems = document.querySelectorAll(".custom-select-panel .custom-select-option:first-child");
   firstItems.forEach(it => {
-    it.innerHTML = 'Не выбрано';
+    if (!it.parentNode.previousElementSibling.classList.contains("custom-pagination-select")) {
+      it.innerHTML = "Не выбрано";
+    }
   });
+}
+const pagSelect = document.querySelector(".lw-pagination-select");
+if (pagSelect) {
+  const options = pagSelect.querySelectorAll(".custom-select-option");
+  const panel = pagSelect.querySelector(".custom-select-panel");
+  const height = options[0].offsetHeight * options.length + 2 > 172 ? 172 : options[0].offsetHeight * options.length + 2;
+  panel.style.top = `-${height}px`;
+  console.log(options.length);
 }
 
 /***/ }),
@@ -74,6 +84,23 @@ document.addEventListener("DOMContentLoaded", function () {
     ctrl.addEventListener('change', onChangeSetHeadControlActive);
   });
 });
+
+/***/ }),
+
+/***/ "./src/scripts/modules/lw-fw-btn.js":
+/*!******************************************!*\
+  !*** ./src/scripts/modules/lw-fw-btn.js ***!
+  \******************************************/
+/***/ (() => {
+
+const favs = document.querySelectorAll(".lw-fv-btn");
+if (favs.length) {
+  favs.forEach(f => {
+    f.addEventListener("click", evt => {
+      evt.currentTarget.classList.toggle("active");
+    });
+  });
+}
 
 /***/ }),
 
@@ -152,36 +179,52 @@ document.addEventListener("DOMContentLoaded", function () {
 
 /***/ }),
 
-/***/ "./src/scripts/modules/lw-object-card-show-more.js":
-/*!*********************************************************!*\
-  !*** ./src/scripts/modules/lw-object-card-show-more.js ***!
-  \*********************************************************/
+/***/ "./src/scripts/modules/lw-object-list.js":
+/*!***********************************************!*\
+  !*** ./src/scripts/modules/lw-object-list.js ***!
+  \***********************************************/
 /***/ (() => {
 
-const btns = document.querySelectorAll('.object-preview-card__station-btn');
+const btns = document.querySelectorAll(".object-station-list-btn");
 if (btns.length) {
   btns.forEach(btn => {
-    btn.addEventListener('click', evt => {
+    btn.addEventListener("click", evt => {
       const list = evt.currentTarget.previousElementSibling;
       if (list) {
-        const items = list.querySelectorAll('li');
-        if (!list.classList.contains('expanded')) {
+        const items = list.querySelectorAll("li");
+        if (!list.classList.contains("expanded")) {
           items.forEach(item => {
-            item.classList.contains('object-preview-card__station-list-item--hidden') ? item.classList.remove('object-preview-card__station-list-item--hidden') : null;
+            item.classList.contains("object-station-list-item--hidden") ? item.classList.remove("object-station-list-item--hidden") : null;
           });
-          list.classList.add('expanded');
-          evt.currentTarget.innerHTML = 'Свернуть';
+          list.classList.add("expanded");
+          evt.currentTarget.innerHTML = "Свернуть";
         } else {
           items.forEach((item, index) => {
             if (index > 1) {
-              !item.classList.contains('object-preview-card__station-list-item--hidden') ? item.classList.add('object-preview-card__station-list-item--hidden') : null;
+              !item.classList.contains("object-station-list-item--hidden") ? item.classList.add("object-station-list-item--hidden") : null;
             }
           });
-          list.classList.remove('expanded');
-          evt.currentTarget.innerHTML = 'Показать еще...';
+          list.classList.remove("expanded");
+          evt.currentTarget.innerHTML = "Показать еще...";
         }
       }
     });
+  });
+}
+
+/***/ }),
+
+/***/ "./src/scripts/modules/y-maps-opener.js":
+/*!**********************************************!*\
+  !*** ./src/scripts/modules/y-maps-opener.js ***!
+  \**********************************************/
+/***/ (() => {
+
+const opener = document.querySelector(".ymaps-opener");
+const map = document.querySelector(".objects__map");
+if (opener && map) {
+  opener.addEventListener("click", () => {
+    map.classList.toggle("is-open");
   });
 }
 
@@ -220,11 +263,11 @@ if (map) {
       // Своё изображение иконки метки.
       iconImageHref: "assets/img/icon-pin.svg",
       // Размеры метки.
-      iconImageSize: [60, 60],
+      iconImageSize: [26, 40],
       // Смещение левого верхнего угла иконки относительно
       // её "ножки" (точки привязки).
-      iconImageOffset: [-30, -30],
-      iconContentOffset: [60, 15],
+      iconImageOffset: [-13, -20],
+      iconContentOffset: [20, 15],
       iconContentLayout: MyIconContentLayout
     });
     myMap.geoObjects.add(officePlacemark);
@@ -1046,14 +1089,21 @@ var __webpack_exports__ = {};
   \*****************************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_custom_select__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/custom-select */ "./src/scripts/modules/custom-select.js");
-/* harmony import */ var _modules_yMaps__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/yMaps */ "./src/scripts/modules/yMaps.js");
-/* harmony import */ var _modules_yMaps__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_modules_yMaps__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _modules_lw_multiple_checker__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/lw-multiple-checker */ "./src/scripts/modules/lw-multiple-checker.js");
-/* harmony import */ var _modules_lw_multiple_checker__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_modules_lw_multiple_checker__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _modules_lw_checkbox_group_selecter__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/lw-checkbox-group-selecter */ "./src/scripts/modules/lw-checkbox-group-selecter.js");
-/* harmony import */ var _modules_lw_checkbox_group_selecter__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_modules_lw_checkbox_group_selecter__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _modules_lw_object_card_show_more__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/lw-object-card-show-more */ "./src/scripts/modules/lw-object-card-show-more.js");
-/* harmony import */ var _modules_lw_object_card_show_more__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_modules_lw_object_card_show_more__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _modules_y_maps_opener__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/y-maps-opener */ "./src/scripts/modules/y-maps-opener.js");
+/* harmony import */ var _modules_y_maps_opener__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_modules_y_maps_opener__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _modules_yMaps__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/yMaps */ "./src/scripts/modules/yMaps.js");
+/* harmony import */ var _modules_yMaps__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_modules_yMaps__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _modules_lw_multiple_checker__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/lw-multiple-checker */ "./src/scripts/modules/lw-multiple-checker.js");
+/* harmony import */ var _modules_lw_multiple_checker__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_modules_lw_multiple_checker__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _modules_lw_checkbox_group_selecter__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/lw-checkbox-group-selecter */ "./src/scripts/modules/lw-checkbox-group-selecter.js");
+/* harmony import */ var _modules_lw_checkbox_group_selecter__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_modules_lw_checkbox_group_selecter__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _modules_lw_object_list__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/lw-object-list */ "./src/scripts/modules/lw-object-list.js");
+/* harmony import */ var _modules_lw_object_list__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_modules_lw_object_list__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _modules_lw_fw_btn__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/lw-fw-btn */ "./src/scripts/modules/lw-fw-btn.js");
+/* harmony import */ var _modules_lw_fw_btn__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_modules_lw_fw_btn__WEBPACK_IMPORTED_MODULE_6__);
+// import "./modules/header-menu";
+
+
 
 
 

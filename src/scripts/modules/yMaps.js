@@ -15,7 +15,7 @@ if (map) {
       center: centerCoords,
       zoom: 17,
       controls: [],
-      behaviors: ["drag"],
+      behaviors: ["drag"]
     });
 
     const MyIconContentLayout = ymaps.templateLayoutFactory.createClass(
@@ -26,7 +26,7 @@ if (map) {
     const officePlacemark = new ymaps.Placemark(
       [59.90297506420561, 30.39827949999997],
       {
-        iconContent: "Завод металических дверей",
+        iconContent: "Завод металических дверей"
       },
       {
         // Опции.
@@ -35,13 +35,13 @@ if (map) {
         // Своё изображение иконки метки.
         iconImageHref: "assets/img/icon-pin.svg",
         // Размеры метки.
-        iconImageSize: [60, 60],
+        iconImageSize: [26, 40],
         // Смещение левого верхнего угла иконки относительно
         // её "ножки" (точки привязки).
-        iconImageOffset: [-30, -30],
-        iconContentOffset: [60, 15],
+        iconImageOffset: [-13, -20],
+        iconContentOffset: [20, 15],
 
-        iconContentLayout: MyIconContentLayout,
+        iconContentLayout: MyIconContentLayout
       }
     );
 
@@ -102,15 +102,15 @@ if (map) {
 
           let map = this.getData().control.getMap();
           map.setZoom(map.getZoom() - 1, { checkZoomRange: true });
-        },
+        }
       }
     );
 
     let zoomControl = new ymaps.control.ZoomControl({
       options: {
         layout: ZoomLayout,
-        position: { right: "30px", bottom: "50px" },
-      },
+        position: { right: "30px", bottom: "50px" }
+      }
     });
     myMap.controls.add(zoomControl);
   }

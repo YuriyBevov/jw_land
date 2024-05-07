@@ -50,17 +50,10 @@
     }
   }
 
-  &__menu,
-  &__menu-overlay {
-    display: flex;
-    align-items: center;
-    flex-grow: 1;
-    gap: 20px;
-  }
-
   .burger {
     display: none;
     margin-left: auto;
+    z-index: 10;
 
     @include m-b-tablet-down {
       display: flex;

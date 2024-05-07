@@ -1,11 +1,11 @@
 mixin lw-select(data)
     if data.options
-        .lw-select
+        .lw-select(class= data.cls ? data.cls : null)
             if data.text
                 small!= data.text
-            select.custom-select
+            select.custom-select(class= data.mainCls ? data.mainCls : null)
                 each value in data.options
                     option(value= value)= value
-            
+
             if data.note
                 small!= data.note

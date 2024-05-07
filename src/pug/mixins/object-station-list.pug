@@ -1,0 +1,21 @@
+include ./lw-btn
+
+mixin object-station-list(data)
+  .object-station
+    ul.object-station-list
+      each station, index in data
+        li.object-station-list-item(class= index > 1 ? 'object-station-list-item--hidden' : null)
+          .object-station-list-item-side
+            img(src="./assets/img/icon-metro.svg" alt= station.name width="" height="")
+            span.lw-text.lw-text--semi!= station.name
+          .object-station-list-item-side
+            span.lw-text.lw-text--light!= station.ambulationTime
+            img(src=`./assets/img/${station.ambulationTypeIcon}` alt= station.ambulationTypeName width= station.ambulationTypeIconWidth height= station.ambulationTypeIconHeight)
+
+    each station, index in data
+      if index > 1 && index < 3
+        +lw-btn({
+          cls: 'lw-simple-btn lw-simple-btn--success-color object-station-list-btn',
+          tag: 'button',
+          text: 'Показать еще...',
+        })

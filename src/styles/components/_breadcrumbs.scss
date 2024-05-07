@@ -1,0 +1,27 @@
+.breadcrumbs {
+  @extend .flex-wrap;
+  gap: 5px;
+  padding: var(--main-offset) 0;
+
+  a {
+    position: relative;
+    display: flex;
+    width: fit-content;
+    padding-right: 35px;
+
+    &::after {
+      position: absolute;
+      top: 50%;
+      right: 5px;
+      transform: translateY(-50%);
+      content: "";
+      width: 20px;
+      height: 18px;
+
+      background-image: url("../assets/img/icon-breadcrumb-arr.svg");
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+    }
+  }
+}

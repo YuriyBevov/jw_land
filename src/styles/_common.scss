@@ -4,18 +4,18 @@
     padding: 0 var(--container-offset);
     max-width: var(--container-width);
 
-    @media(max-width: 620px) {
+    @media (max-width: 620px) {
       padding: 0 20px;
     }
   }
 
   &-text {
-    font-size: 16px;
+    font-size: clamp(14px, 1.8vw, 16px);
     font-weight: 400;
     color: var(--base-text-color);
 
     &--md {
-      font-size: 24px;
+      font-size: clamp(18px, 1.8vw, 24px);
     }
 
     &--sm {
@@ -45,6 +45,33 @@
     }
     &--bold {
       font-weight: 700;
+    }
+  }
+
+  &-table-wrapper {
+    width: 100%;
+    overflow: hidden;
+    overflow-x: auto;
+    padding-bottom: 20px;
+
+    table {
+      width: 100%;
+      min-width: 1140px;
+
+      tr {
+        padding: 20px 0;
+        &:not(:last-child) {
+          border-bottom: 1px solid #dedede;
+        }
+      }
+
+      td {
+        text-align: center;
+
+        img {
+          min-width: 24px;
+        }
+      }
     }
   }
 }

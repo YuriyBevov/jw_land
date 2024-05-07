@@ -1,0 +1,30 @@
+.object-detail {
+  &__container {
+    @extend .flex-column;
+    gap: var(--main-offset);
+  }
+
+  &__main {
+    @extend .flex-column;
+    gap: 20px;
+  }
+
+  &__title {
+    display: inline-block;
+    margin-bottom: clamp(20px, 2vw, 30px);
+  }
+
+  &__desc {
+    p {
+      margin: 0;
+    }
+  }
+
+  &__list {
+    table {
+      td {
+        padding: 12px 16px;
+      }
+    }
+  }
+}

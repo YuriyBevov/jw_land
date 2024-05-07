@@ -1,5 +1,4 @@
 .lw-select {
-
   display: flex;
   align-items: center;
   gap: 10px;
@@ -12,7 +11,7 @@
     font-weight: 400;
     color: #757575;
 
-    @media(max-width: 534px) {
+    @media (max-width: 534px) {
       font-size: 12px;
     }
   }
@@ -22,8 +21,12 @@
       width: 100%;
 
       &.is-open .custom-select-panel {
-        border: 1px solid #dedede;
-        border-radius: 6px;
+        // border: 1px solid #dedede;
+        border-radius: 3px;
+      }
+
+      &.is-open .custom-select-opener::after {
+        transform: translateY(-50%) rotate(180deg);
       }
     }
 
@@ -32,27 +35,26 @@
       font-weight: 400;
       color: #333333;
       padding: 10px 16px;
-      border-radius: 6px;
-      border: 1px solid #dedede;
+      border-radius: 3px;
       background-color: transparent;
       padding-right: 50px;
       width: 100%;
-      // max-width: 500px;
 
       position: relative;
 
       &::after {
         position: absolute;
         top: 50%;
-        transform: translateY(-50%);
+        transform: translateY(-50%) rotate(0);
         right: 16px;
-        content: '';
+        content: "";
         width: 16px;
-        height: 16px;
-        background-image: url("../assets/img/icon-arrow-down.svg");;
+        height: 10px;
+        background-image: url("../assets/img/icon-arrow-down.svg");
         background-repeat: no-repeat;
-        background-size: 16px;
+        background-size: contain;
         background-position: center;
+        transition: transform var(--main-transition);
       }
     }
 
@@ -61,7 +63,6 @@
       width: 100%;
       transition: none !important;
       min-width: fit-content;
-      // max-width: 500px;
       padding: 0;
 
       background-color: #ffffff;
@@ -76,13 +77,57 @@
       background-color: transparent;
 
       &:not(:last-child) {
-        border-bottom: 1px solid #dedede
+        border-bottom: 1px solid #dedede;
       }
     }
 
     &-option.has-focus {
       color: #ffffff;
       background-color: #4caf50;
+    }
+  }
+}
+
+.lw-pagination-select {
+  width: 100%;
+  max-width: fit-content;
+  box-shadow: none;
+  .custom-select {
+    &-opener {
+      width: 55px;
+      height: 36px;
+      padding: 10px;
+      padding-right: 16px;
+      color: var(--light);
+
+      border: 1px solid var(--lightgray);
+      border-radius: 3px;
+
+      &::after {
+        right: 8px;
+        background-image: url("../assets/img/icon-arr-d.svg");
+        background-size: 16px;
+      }
+    }
+
+    &-panel {
+      width: 55px;
+      height: fit-content;
+      top: calc(-100% + 2px);
+    }
+
+    &-container {
+      &.is-open .custom-select-panel {
+        border: 1px solid var(--lightgray);
+        border-radius: 3px;
+        max-height: 170px;
+      }
+    }
+
+    &-option {
+      padding: 8px 10px;
+      min-height: 36px;
+      text-align: center;
     }
   }
 }
