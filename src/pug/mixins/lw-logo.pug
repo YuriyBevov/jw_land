@@ -1,2 +1,3 @@
 mixin lw-logo(data)
-  img(src=`./assets/img/${data.img}` alt= data.imgAlt width= data.imgWidth height= data.imgHeight).lw-logo
+  a(href="index.html" aria-label="На главную")
+    img(src=`./assets/img/${data.img}` alt= data.imgAlt width= data.imgWidth height= data.imgHeight).lw-logo

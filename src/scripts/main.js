@@ -6,3 +6,4 @@ import "./modules/lw-multiple-checker";
 import "./modules/lw-checkbox-group-selecter";
 import "./modules/lw-object-list";
 import "./modules/lw-fw-btn";
+import "./modules/swiper";

@@ -1,63 +1,121 @@
 include ../mixins/lw-fv-btn
 include ../mixins/img-frame
+include ../mixins/lw-simple-table
 include ../mixins/object-station-list
+include ../mixins/lw-main-slider
 
 section.object-detail
   .lw-container.object-detail__container
-    p slider
     .object-detail__main
-
-      .object-detail__main-top
-        +lw-btn({
-          cls: 'lw-simple-btn lw-simple-btn--success-color',
-          tag: 'button',
-
-          text: 'На карте',
-          icon: 'icon-map.svg',
-          iconWidth: '24',
-          iconHeight: '24',
-        })
-
-        +lw-fv-btn({
-          state: false,
-          text: true
-        })
-
-
-      span.lw-text.lw-text--md.lw-text--semi Просторный ЖК бизнес-класса “Белые ночи” у Пресненской набережной
-      small.lw-text.lw-text--light Чкаловский Нагатинская набережная Судостроительной улицы район
-      span.lw-text г. Москва, просп. Центральный проезд Хорошевского Серебряного Бора, д.1455550, стр. 145, д. 123, к. 1234
-
-      +object-station-list(
-        [
+      +lw-main-slider({
+        slides: [
           {
-            name: 'Волгоградский проспект',
-            ambulationTime: '20 мин',
-            ambulationTypeName: 'пешком',
-            ambulationTypeIcon: 'icon-man.svg',
-            ambulationTypeIconWidth: '14',
-            ambulationTypeIconHeight: '14'
+            img: 'object-slide-1.png'
           },
-
           {
-            name: 'Волгоградский проспект',
-            ambulationTime: '20 мин',
-            ambulationTypeName: 'пешком',
-            ambulationTypeIcon: 'icon-man.svg',
-            ambulationTypeIconWidth: '14',
-            ambulationTypeIconHeight: '14'
-          },
-
-          {
-            name: 'Волгоградский проспект',
-            ambulationTime: '20 мин',
-            ambulationTypeName: 'пешком',
-            ambulationTypeIcon: 'icon-man.svg',
-            ambulationTypeIconWidth: '14',
-            ambulationTypeIconHeight: '14'
+            img: 'object-slide-2.png'
           },
         ]
-      )
+      })
+      .object-detail__info
+        .object-detail__info-top
+          +lw-btn({
+            cls: 'lw-simple-btn lw-simple-btn--success-color',
+            tag: 'button',
+
+            text: 'На карте',
+            icon: 'icon-map.svg',
+            iconWidth: '24',
+            iconHeight: '24',
+          })
+
+          +lw-fv-btn({
+            state: false,
+            text: true
+          })
+
+        span.lw-text.lw-text--md.lw-text--semi Просторный ЖК бизнес-класса “Белые ночи” у Пресненской набережной
+        small.lw-text.lw-text--light Чкаловский Нагатинская набережная Судостроительной улицы район
+        span.lw-text г. Москва, просп. Центральный проезд Хорошевского Серебряного Бора, д.1455550, стр. 145, д. 123, к. 1234
+
+        +object-station-list(
+          [
+            {
+              name: 'Волгоградский проспект',
+              ambulationTime: '20 мин',
+              ambulationTypeName: 'пешком',
+              ambulationTypeIcon: 'icon-man.svg',
+              ambulationTypeIconWidth: '14',
+              ambulationTypeIconHeight: '14'
+            },
+
+            {
+              name: 'Волгоградский проспект',
+              ambulationTime: '20 мин',
+              ambulationTypeName: 'пешком',
+              ambulationTypeIcon: 'icon-man.svg',
+              ambulationTypeIconWidth: '14',
+              ambulationTypeIconHeight: '14'
+            },
+
+            {
+              name: 'Волгоградский проспект',
+              ambulationTime: '20 мин',
+              ambulationTypeName: 'пешком',
+              ambulationTypeIcon: 'icon-man.svg',
+              ambulationTypeIconWidth: '14',
+              ambulationTypeIconHeight: '14'
+            },
+          ]
+        )
+
+        .object-detail__chars
+          +lw-simple-table({
+            tbody: {
+              rows: [
+                {
+                  tds: [
+                    {
+                      text: '№ дома'
+                    },
+                    {
+                      text: '12',
+                    },
+                  ]
+                },
+                {
+                  tds: [
+                    {
+                      text: 'Корпус'
+                    },
+                    {
+                      text: '3'
+                    },
+                  ]
+                },
+                {
+                  tds: [
+                    {
+                      text: 'Этажей'
+                    },
+                    {
+                      text: '25'
+                    },
+                  ]
+                },
+                {
+                  tds: [
+                    {
+                      text: 'Срок сдачи'
+                    },
+                    {
+                      text: '3 квартал 2022<br>3 квартал 2022<br>3 квартал 2022'
+                    },
+                  ]
+                }
+              ]
+            }
+          })
 
     .object-detail__desc
       span.lw-text.lw-text--md.lw-text--bold.object-detail__title Описание ЖК
@@ -68,7 +126,7 @@ section.object-detail
 
     include ../components/sort
 
-    .object-detail__list
+    .objects-list.objects-list--table-view
       span.lw-text.lw-text--md.lw-text--bold.object-detail__title Квартиры в комплексе
       .lw-table-wrapper
         table
@@ -118,6 +176,9 @@ section.object-detail
               td
                 +lw-fv-btn({state: true})
 
-      include ../components/pagination
+    .objects-list.objects-list--card-view
+      p cards
+
+    include ../components/pagination
 
 

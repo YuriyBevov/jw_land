@@ -1,0 +1,32 @@
+:root {
+  --lw-simple-table-left-td-color: var(--light);
+  --lw-simple-table-right-td-color: var(--dark);
+  --lw-simple-tble-max-width: 460px;
+}
+
+.lw-simple-table {
+  width: 100%;
+
+  table {
+    width: 100%;
+    max-width: var(--lw-simple-tble-max-width);
+    border-collapse: collapse;
+
+    td {
+      width: 50%;
+      vertical-align: top;
+      padding: 10px;
+      padding-left: 0;
+      padding-right: 20px;
+
+      &:first-child {
+        color: var(--lw-simple-table-left-td-color);
+      }
+
+      &:last-child {
+        font-weight: 700;
+        color: var(--lw-simple-table-right-td-color);
+      }
+    }
+  }
+}

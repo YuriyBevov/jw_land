@@ -12,7 +12,7 @@
   </head>
   <body>
     <header class="main-header">
-      <div class="lw-container main-header__container"><img class="lw-logo" src="./assets/img/icon-logo.svg" alt="JoyWork" width="125" height="40"><small class="main-header__desc lw-text lw-text--sm lw-text--light">Агентство недвижимости <br>Какое то название агентства недвижимости</small>
+      <div class="lw-container main-header__container"><a href="index.html" aria-label="На главную"><img class="lw-logo" src="./assets/img/icon-logo.svg" alt="JoyWork" width="125" height="40"></a><small class="main-header__desc lw-text lw-text--sm lw-text--light">Агентство недвижимости <br>Какое то название агентства недвижимости</small>
         <div class="main-header__contacts"><a class="lw-text" href="tel:88129815617">8 812 981-56-17</a><a class="lw-text lw-text--sm lw-text--success" href="mailto:info-email@mail.ru">info-email@mail.ru</a><a class="lw-text lw-text--sm lw-text--info" href="https://joywork.ru/">https://joywork.ru/</a></div>
         <button class="fv-btn" type="button"><img src="../assets/img/icon-heart.svg" alt="Избранное" width="20" height="20"><span>Избранное</span><span class="fv-btn-count">101</span></button>
         <div class="user"><img class="user-avatar" src="../assets/img/user-avatar.png" alt="Аватар" width="60" height="60">
@@ -27,32 +27,67 @@
       </div>
       <section class="object-detail">
         <div class="lw-container object-detail__container">
-          <p>slider</p>
           <div class="object-detail__main">
-            <div class="object-detail__main-top">
-                    <button class="lw-simple-btn lw-simple-btn--success-color" type="button"><img src="./assets/img/icon-map.svg" width="24" height="24"><span>На карте</span>
-                    </button>
-                    <button class="lw-fv-btn" type="button" aria-label="Избранное"><span class="lw-text lw-text--light">В избранное</span>
-                    </button>
-            </div><span class="lw-text lw-text--md lw-text--semi">Просторный ЖК бизнес-класса “Белые ночи” у Пресненской набережной</span><small class="lw-text lw-text--light">Чкаловский Нагатинская набережная Судостроительной улицы район</small><span class="lw-text">г. Москва, просп. Центральный проезд Хорошевского Серебряного Бора, д.1455550, стр. 145, д. 123, к. 1234</span>
-                  <div class="object-station">
-                    <ul class="object-station-list">
-                      <li class="object-station-list-item">
-                        <div class="object-station-list-item-side"><img src="./assets/img/icon-metro.svg" alt="Волгоградский проспект" width="" height=""><span class="lw-text lw-text--semi">Волгоградский проспект</span></div>
-                        <div class="object-station-list-item-side"><span class="lw-text lw-text--light">20 мин</span><img src="./assets/img/icon-man.svg" alt="пешком" width="14" height="14"></div>
-                      </li>
-                      <li class="object-station-list-item">
-                        <div class="object-station-list-item-side"><img src="./assets/img/icon-metro.svg" alt="Волгоградский проспект" width="" height=""><span class="lw-text lw-text--semi">Волгоградский проспект</span></div>
-                        <div class="object-station-list-item-side"><span class="lw-text lw-text--light">20 мин</span><img src="./assets/img/icon-man.svg" alt="пешком" width="14" height="14"></div>
-                      </li>
-                      <li class="object-station-list-item object-station-list-item--hidden">
-                        <div class="object-station-list-item-side"><img src="./assets/img/icon-metro.svg" alt="Волгоградский проспект" width="" height=""><span class="lw-text lw-text--semi">Волгоградский проспект</span></div>
-                        <div class="object-station-list-item-side"><span class="lw-text lw-text--light">20 мин</span><img src="./assets/img/icon-man.svg" alt="пешком" width="14" height="14"></div>
-                      </li>
-                    </ul>
-                          <button class="lw-simple-btn lw-simple-btn--success-color object-station-list-btn" type="button"><span>Показать еще...</span>
-                          </button>
+                  <div class="lw-main-slider">
+                    <div class="swiper">
+                      <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img src="../assets/img/object-slide-1.png" alt="" width="550" height="550"></div>
+                        <div class="swiper-slide"><img src="../assets/img/object-slide-2.png" alt="" width="550" height="550"></div>
+                      </div>
+                      <div class="swiper-button-prev"></div>
+                      <div class="swiper-button-next"></div>
+                    </div>
                   </div>
+            <div class="object-detail__info">
+              <div class="object-detail__info-top">
+                      <button class="lw-simple-btn lw-simple-btn--success-color" type="button"><img src="./assets/img/icon-map.svg" width="24" height="24"><span>На карте</span>
+                      </button>
+                      <button class="lw-fv-btn" type="button" aria-label="Избранное"><span class="lw-text lw-text--light">В избранное</span>
+                      </button>
+              </div><span class="lw-text lw-text--md lw-text--semi">Просторный ЖК бизнес-класса “Белые ночи” у Пресненской набережной</span><small class="lw-text lw-text--light">Чкаловский Нагатинская набережная Судостроительной улицы район</small><span class="lw-text">г. Москва, просп. Центральный проезд Хорошевского Серебряного Бора, д.1455550, стр. 145, д. 123, к. 1234</span>
+                    <div class="object-station">
+                      <ul class="object-station-list">
+                        <li class="object-station-list-item">
+                          <div class="object-station-list-item-side"><img src="./assets/img/icon-metro.svg" alt="Волгоградский проспект" width="" height=""><span class="lw-text lw-text--semi">Волгоградский проспект</span></div>
+                          <div class="object-station-list-item-side"><span class="lw-text lw-text--light">20 мин</span><img src="./assets/img/icon-man.svg" alt="пешком" width="14" height="14"></div>
+                        </li>
+                        <li class="object-station-list-item">
+                          <div class="object-station-list-item-side"><img src="./assets/img/icon-metro.svg" alt="Волгоградский проспект" width="" height=""><span class="lw-text lw-text--semi">Волгоградский проспект</span></div>
+                          <div class="object-station-list-item-side"><span class="lw-text lw-text--light">20 мин</span><img src="./assets/img/icon-man.svg" alt="пешком" width="14" height="14"></div>
+                        </li>
+                        <li class="object-station-list-item object-station-list-item--hidden">
+                          <div class="object-station-list-item-side"><img src="./assets/img/icon-metro.svg" alt="Волгоградский проспект" width="" height=""><span class="lw-text lw-text--semi">Волгоградский проспект</span></div>
+                          <div class="object-station-list-item-side"><span class="lw-text lw-text--light">20 мин</span><img src="./assets/img/icon-man.svg" alt="пешком" width="14" height="14"></div>
+                        </li>
+                      </ul>
+                            <button class="lw-simple-btn lw-simple-btn--success-color object-station-list-btn" type="button"><span>Показать еще...</span>
+                            </button>
+                    </div>
+              <div class="object-detail__chars">
+                      <div class="lw-simple-table">
+                        <table>
+                          <tbody>
+                            <tr>
+                              <td align="left">№ дома</td>
+                              <td align="left">12</td>
+                            </tr>
+                            <tr>
+                              <td align="left">Корпус</td>
+                              <td align="left">3</td>
+                            </tr>
+                            <tr>
+                              <td align="left">Этажей</td>
+                              <td align="left">25</td>
+                            </tr>
+                            <tr>
+                              <td align="left">Срок сдачи</td>
+                              <td align="left">3 квартал 2022<br>3 квартал 2022<br>3 квартал 2022</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+              </div>
+            </div>
           </div>
           <div class="object-detail__desc"><span class="lw-text lw-text--md lw-text--bold object-detail__title">Описание ЖК</span>
             <p class="lw-text lw-text--light">
@@ -89,7 +124,7 @@
                       <button class="lw-main-btn" type="button"><span>Подобрать</span>
                       </button>
           </div>
-          <div class="object-detail__list"><span class="lw-text lw-text--md lw-text--bold object-detail__title">Квартиры в комплексе</span>
+          <div class="objects-list objects-list--table-view"><span class="lw-text lw-text--md lw-text--bold object-detail__title">Квартиры в комплексе</span>
             <div class="lw-table-wrapper">
               <table>
                 <thead>
@@ -144,43 +179,46 @@
                 </tbody>
               </table>
             </div>
-            <div class="pagination">
-                          <div class="lw-select lw-pagination-select">
-                            <select class="custom-select custom-pagination-select">
-                              <option value="1">1</option>
-                              <option value="2">2</option>
-                              <option value="3">3</option>
-                              <option value="4">4</option>
-                              <option value="5">5</option>
-                              <option value="6">6</option>
-                            </select>
-                          </div>
-              <div class="pagination-wrapper">
-                <button class="pagination-btn" type="button">
-                  <svg width="16" height="16">
-                    <use xlink:href="./assets/sprite.svg#icon-double-arr-l"></use>
-                  </svg>
-                </button>
-                <button class="pagination-btn" type="button">
-                  <svg width="16" height="16">
-                    <use xlink:href="./assets/sprite.svg#icon-arr-l"></use>
-                  </svg>
-                </button>
-                <button class="pagination-btn" type="button">1</button>
-                <button class="pagination-btn" type="button">2</button>
-                <button class="pagination-btn current" type="button">3</button>
-                <button class="pagination-btn" type="button">4</button>
-                <button class="pagination-btn" type="button">
-                  <svg width="16" height="16">
-                    <use xlink:href="./assets/sprite.svg#icon-arr-r"></use>
-                  </svg>
-                </button>
-                <button class="pagination-btn" type="button">
-                  <svg width="16" height="16">
-                    <use xlink:href="./assets/sprite.svg#icon-double-arr-r"></use>
-                  </svg>
-                </button>
-              </div>
+          </div>
+          <div class="objects-list objects-list--card-view">
+            <p>cards</p>
+          </div>
+          <div class="pagination">
+                      <div class="lw-select lw-pagination-select">
+                        <select class="custom-select custom-pagination-select">
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                        </select>
+                      </div>
+            <div class="pagination-wrapper">
+              <button class="pagination-btn" type="button">
+                <svg width="16" height="16">
+                  <use xlink:href="./assets/sprite.svg#icon-double-arr-l"></use>
+                </svg>
+              </button>
+              <button class="pagination-btn" type="button">
+                <svg width="16" height="16">
+                  <use xlink:href="./assets/sprite.svg#icon-arr-l"></use>
+                </svg>
+              </button>
+              <button class="pagination-btn" type="button">1</button>
+              <button class="pagination-btn" type="button">2</button>
+              <button class="pagination-btn current" type="button">3</button>
+              <button class="pagination-btn" type="button">4</button>
+              <button class="pagination-btn" type="button">
+                <svg width="16" height="16">
+                  <use xlink:href="./assets/sprite.svg#icon-arr-r"></use>
+                </svg>
+              </button>
+              <button class="pagination-btn" type="button">
+                <svg width="16" height="16">
+                  <use xlink:href="./assets/sprite.svg#icon-double-arr-r"></use>
+                </svg>
+              </button>
             </div>
           </div>
         </div>

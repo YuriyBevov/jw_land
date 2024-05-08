@@ -59,10 +59,8 @@
       min-width: 1140px;
 
       tr {
-        padding: 20px 0;
-        &:not(:last-child) {
-          border-bottom: 1px solid #dedede;
-        }
+        height: 40px;
+        border-bottom: 1px solid #dedede;
       }
 
       td {

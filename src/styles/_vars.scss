@@ -24,6 +24,8 @@
     --main-bg: var(--white);
     --main-offset: clamp(20px, 3vw,50px);
     --main-transition: .2s ease-in;
+    --main-border: 1px solid var(--lightgray);
+
     // scrollbar
     --main-scrollbar-width: 6px;
     --main-scrollbar-color: transparent;
