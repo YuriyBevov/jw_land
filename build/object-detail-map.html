@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    <title></title>
+    <link rel="stylesheet" href="./assets/main.css"/>
+    <script defer="defer" src="./assets/bundle.js"></script>
+  </head>
+  <body>
+    <header class="main-header">
+      <div class="lw-container main-header__container"><a href="index.html" aria-label="На главную"><img class="lw-logo" src="./assets/img/icon-logo.svg" alt="JoyWork" width="125" height="40"></a><small class="main-header__desc lw-text lw-text--sm lw-text--light">Агентство недвижимости <br>Какое то название агентства недвижимости</small>
+        <div class="main-header__contacts"><a class="lw-text" href="tel:88129815617">8 812 981-56-17</a><a class="lw-text lw-text--sm lw-text--success" href="mailto:info-email@mail.ru">info-email@mail.ru</a><a class="lw-text lw-text--sm lw-text--info" href="https://joywork.ru/">https://joywork.ru/</a></div>
+        <button class="fv-btn" type="button"><img src="../assets/img/icon-heart.svg" alt="Избранное" width="20" height="20"><span>Избранное</span><span class="fv-btn-count">101</span></button>
+        <div class="user"><img class="user-avatar" src="../assets/img/user-avatar.png" alt="Аватар" width="60" height="60">
+          <div class="user-content"><span class="lw-text lw-text--sm">Ваш менеджер <span class="user-name">Константинов Константин</span></span><span class="user-phone lw-text lw-text--sm lw-text--light">Телефон: <a href="tel:+79999999999">+7 (999) 999 99 99</a></span><span class="user-mail lw-text lw-text--sm lw-text--light">Почта: <a href="mailto:info-email@mail.ru">info-email@mail.ru</a></span></div>
+        </div>
+        <button class="burger" type="button" aria-label="Открыть меню"><img src="./assets/img/icon-burger.svg" alt="Бупгер" width="24" height="18"></button>
+      </div>
+    </header>
+    <main>
+      <div class="lw-container">
+        <div class="breadcrumbs"><a class="lw-text lw-text--medi lw-text--light" href="index.html">Жилые комплексы</a><a class="lw-text lw-text--medi lw-text--light" href="index.html">Жилые комплексы Санкт-Петербурга</a><a class="lw-text lw-text--medi lw-text--light" href="index.html">Жилые комплексы</a><a class="lw-text lw-text--medi lw-text--light" href="index.html">Жилые комплексы</a><span class="lw-text lw-text--medi lw-text--success">ЖК «Брустника»</span></div>
+      </div>
+      <section class="object-detail-map">
+        <div class="lw-container">
+                <div class="object-card">
+                  <div class="object-card__title"><span class="lw-text lw-text--md lw-text--semi">Просторная 2-х комнатная квартира ЖК “Белые ночи” д. 13, стр. 17, кв. 29203 2-х комнатная квартира ЖК “Белые ночи” д. 13, стр. 17, кв. 29203</span>
+                          <button class="lw-fv-btn" type="button" aria-label="Избранное"><span class="lw-text lw-text--light">В избранное</span>
+                          </button>
+                  </div>
+                  <div class="object-card__img">
+                          <button class="lw-fv-btn--simple lw-fv-btn" type="button" aria-label="Избранное">
+                          </button><img src="./assets/img/object-card-img-1.png" alt="Объект" width="550" height="550">
+                  </div>
+                  <div class="object-card__info">
+                    <div class="lw-table-wrapper">
+                      <table>
+                        <thead>
+                          <tr>
+                            <td>Стоимость</td>
+                            <td>Стоимость кв.м.</td>
+                          </tr>
+                          <tr>
+                            <td>1 122 304 830 p.</td>
+                            <td>1 304 830 p.</td>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>Общая площадь:</td>
+                            <td>150.68 м2</td>
+                          </tr>
+                          <tr>
+                            <td>Корпус:</td>
+                            <td>3</td>
+                          </tr>
+                          <tr>
+                            <td>№ кв:</td>
+                            <td>308</td>
+                          </tr>
+                          <tr>
+                            <td>Тип кв:</td>
+                            <td>2 ккв</td>
+                          </tr>
+                          <tr>
+                            <td>Этаж:</td>
+                            <td>10</td>
+                          </tr>
+                          <tr>
+                            <td>Отделка:</td>
+                            <td>Без отделки</td>
+                          </tr>
+                          <tr>
+                            <td>Срок сдачи:</td>
+                            <td>3 квартал 2022</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+        </div>
+      </section>
+    </main>
+    <script async src="https://api-maps.yandex.ru/2.1/?apikey=4aa8fccd-d097-4486-835a-704db2b05b2e&amp;lang=ru_RU"></script>
+  </body>
+</html>

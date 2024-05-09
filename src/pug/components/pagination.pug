@@ -15,10 +15,10 @@ include ../mixins/lw-select
   })
 
   .pagination-wrapper
-    button(type="button").pagination-btn
+    button(type="button").pagination-btn.pagination-btn--hidden-xs
       svg(width="16" height="16")
         use(xlink:href="./assets/sprite.svg#icon-double-arr-l")
-    button(type="button").pagination-btn
+    button(type="button").pagination-btn.pagination-btn--hidden-xs
       svg(width="16" height="16")
         use(xlink:href="./assets/sprite.svg#icon-arr-l")
 
@@ -28,12 +28,10 @@ include ../mixins/lw-select
 
     button(type="button").pagination-btn.current 3
 
-    button(type="button").pagination-btn 4
-
-    button(type="button").pagination-btn
+    button(type="button").pagination-btn.pagination-btn--hidden-xs
       svg(width="16" height="16")
         use(xlink:href="./assets/sprite.svg#icon-arr-r")
-    button(type="button").pagination-btn
+    button(type="button").pagination-btn.pagination-btn--hidden-xs
       svg(width="16" height="16")
         use(xlink:href="./assets/sprite.svg#icon-double-arr-r")
 

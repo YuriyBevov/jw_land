@@ -1,0 +1,45 @@
+include ./lw-fv-btn
+include ./lw-btn
+
+mixin object-card(data)
+  .object-card
+    if data.title
+      .object-card__title
+        span.lw-text.lw-text--md.lw-text--semi!= data.title
+
+        +lw-fv-btn({
+          state: false,
+          text: true
+        })
+
+    .object-card__img
+      +lw-fv-btn({
+        state: false,
+      })
+      img(src=`./assets/img/${data.img}` alt="Объект" width="550" height="550")
+
+    .object-card__info
+        .lw-table-wrapper
+          if data.table
+            table
+              if data.table.thead
+                thead
+                  each tr in data.table.thead
+                    tr
+                      each td in tr
+                        td!= td.value
+              if data.table.tbody
+                tbody
+                  each tr in data.table.tbody
+                    tr
+                      each td in tr
+                        td!= td.value
+
+    if data.moreBtn
+      +lw-btn({
+        cls: 'lw-main-btn lw-main-btn--outlined',
+        tag: 'a',
+        href: 'object-detail-map.html',
+        text: 'Подробнее'
+      })
+

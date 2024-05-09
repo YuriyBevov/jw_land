@@ -3,6 +3,7 @@ include ../mixins/img-frame
 include ../mixins/lw-simple-table
 include ../mixins/object-station-list
 include ../mixins/lw-main-slider
+include ../mixins/object-card
 
 section.object-detail
   .lw-container.object-detail__container
@@ -177,7 +178,44 @@ section.object-detail
                 +lw-fv-btn({state: true})
 
     .objects-list.objects-list--card-view
-      p cards
+      each card in [1,2,3,4,5,6]
+        +object-card({
+          img: 'object-card-img-1.png',
+          moreBtn: true,
+
+          table: {
+            tbody: [
+              [
+                { value: 'Общая площадь:' },
+                { value: '150.68 м2' }
+              ],
+              [
+                { value: 'Корпус:' },
+                { value: '3' },
+              ],
+              [
+                { value: '№ кв:' },
+                { value: '308' },
+              ],
+              [
+                { value: 'Тип кв:' },
+                { value: '2 ккв' },
+              ],
+              [
+                { value: 'Этаж:' },
+                { value: '10' },
+              ],
+              [
+                { value: 'Отделка:' },
+                { value: 'Без отделки' },
+              ],
+              [
+                { value: 'Срок сдачи:' },
+                { value: '3 квартал 2022' },
+              ],
+            ]
+          }
+        })
 
     include ../components/pagination
 

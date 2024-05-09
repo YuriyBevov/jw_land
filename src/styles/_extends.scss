@@ -16,6 +16,35 @@
   flex-direction: column;
 }
 
+.img-frame-lg {
+  position: relative;
+  border: var(--main-border);
+  border-radius: 10px;
+
+  overflow: hidden;
+  &::after {
+    position: absolute;
+    bottom: -1px;
+    left: -1px;
+    width: 40%;
+    max-width: 200px;
+    height: 15%;
+    max-height: 80px;
+
+    content: "";
+
+    border-radius: 0 5px 0 0;
+    border: 1px solid var(--object-preview-card-main-color);
+    background-color: #ffffff;
+
+    background-image: url("../assets/img/icon-logo.svg");
+    background-size: 40% auto;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 2;
+  }
+}
+
 /*text*/
 
 .text-truncate {
@@ -27,14 +56,13 @@
 /*scroll*/
 .main-scroll {
   &::-webkit-scrollbar {
-      background-color: var(--main-scrollbar-color);
-      width: var(--main-scrollbar-width);
-
+    background-color: var(--main-scrollbar-color);
+    width: var(--main-scrollbar-width);
   }
 
   &::-webkit-scrollbar-thumb {
-      background-color: var(--main-scrollbar-thumb-color);
-      border-radius: 5px;
+    background-color: var(--main-scrollbar-thumb-color);
+    border-radius: 5px;
   }
 }
 

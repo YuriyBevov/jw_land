@@ -8,6 +8,10 @@
   &-wrapper {
     display: flex;
     gap: 10px;
+
+    @include m-b-mobile-lg-down {
+      gap: 3px;
+    }
   }
 
   &-btn {
@@ -38,6 +42,12 @@
       svg {
         fill: var(--success);
       }
+    }
+  }
+
+  @include m-b-down(420px) {
+    .lw-pagination-select {
+      display: none;
     }
   }
 }

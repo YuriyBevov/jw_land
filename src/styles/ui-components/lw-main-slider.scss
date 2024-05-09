@@ -3,18 +3,16 @@
   max-height: 550px;
 
   .swiper {
-
   }
 
   .swiper-wrapper {
-
   }
 
-  .swiper-button-next:after{
+  .swiper-button-next:after {
     padding-left: 4px;
   }
 
-  .swiper-button-prev::after{
+  .swiper-button-prev::after {
     padding-right: 4px;
   }
 
@@ -39,34 +37,10 @@
   }
 
   .swiper-slide {
-    position: relative;
-    border: var(--main-border);
-    border-radius: 10px;
-    overflow: hidden;
     width: 100%;
     box-sizing: border-box;
 
-    &::after {
-      position: absolute;
-      bottom: -1px;
-      left: -1px;
-      width: 40%;
-      max-width: 200px;
-      height: 15%;
-      max-height: 80px;
-
-      content: "";
-
-      border-radius: 0 5px 0 0;
-      border: 1px solid var(--object-preview-card-main-color);
-      background-color: #ffffff;
-
-      background-image: url("../assets/img/icon-logo.svg");
-      background-size: 40% auto;
-      background-repeat: no-repeat;
-      background-position: center;
-      z-index: 2;
-    }
+    @extend .img-frame-lg;
 
     img {
       display: flex;

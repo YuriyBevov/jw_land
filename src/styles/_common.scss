@@ -53,23 +53,5 @@
     overflow: hidden;
     overflow-x: auto;
     padding-bottom: 20px;
-
-    table {
-      width: 100%;
-      min-width: 1140px;
-
-      tr {
-        height: 40px;
-        border-bottom: 1px solid #dedede;
-      }
-
-      td {
-        text-align: center;
-
-        img {
-          min-width: 24px;
-        }
-      }
-    }
   }
 }
