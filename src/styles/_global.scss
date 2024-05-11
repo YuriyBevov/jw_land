@@ -44,3 +44,11 @@ img {
 a {
   text-decoration: none;
 }
+
+section:not(:last-child) {
+  margin-bottom: var(--main-offset);
+}
+
+section:last-child {
+  margin-bottom: 50px;
+}

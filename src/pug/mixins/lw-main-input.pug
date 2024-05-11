@@ -1,11 +1,11 @@
 mixin lw-main-input(data)
     .lw-main-input-wrapper
         if data.text
-            small!= data.text 
+            span!= data.text
         input(class= data.modifier ? data.modifier : null type="text" placeholder= data.placeholder ? data.placeholder : null)
         if data.note
-            small!= data.note
-        
+            span!= data.note
+
         if data.secondField
-            input(class= data.modifier ? data.modifier : null type="text" placeholder= data.placeholder ? data.placeholder : null)
+            input(class= data.modifier ? data.modifier : null type="text" placeholder= data.secondFieldPlaceholder ? data.secondFieldPlaceholder : null)
 

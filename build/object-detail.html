@@ -39,9 +39,7 @@
                     </div>
                   </div>
             <div class="object-detail__info">
-              <div class="object-detail__info-top">
-                      <button class="lw-simple-btn lw-simple-btn--success-color" type="button"><img src="./assets/img/icon-map.svg" width="24" height="24"><span>На карте</span>
-                      </button>
+              <div class="object-detail__info-top"><a class="lw-simple-btn lw-simple-btn--success-color" href="object-detail-map.html"><img src="./assets/img/icon-map.svg" width="24" height="24"><span>На карте</span></a>
                       <button class="lw-fv-btn" type="button" aria-label="Избранное"><span class="lw-text lw-text--light">В избранное</span>
                       </button>
               </div><span class="lw-text lw-text--md lw-text--semi">Просторный ЖК бизнес-класса “Белые ночи” у Пресненской набережной</span><small class="lw-text lw-text--light">Чкаловский Нагатинская набережная Судостроительной улицы район</small><span class="lw-text">г. Москва, просп. Центральный проезд Хорошевского Серебряного Бора, д.1455550, стр. 145, д. 123, к. 1234</span>
@@ -102,25 +100,39 @@
                           <option value="Срок сдачи">Срок сдачи</option>
                           <option value="3 месяца">3 месяца</option>
                           <option value="1й квартал 2039 года">1й квартал 2039 года</option>
+                          <option value="3 месяца">3 месяца</option>
+                          <option value="1й квартал 2039 года">1й квартал 2039 года</option>
+                          <option value="3 месяца">3 месяца</option>
+                          <option value="1й квартал 2039 года">1й квартал 2039 года</option>
+                          <option value="3 месяца">3 месяца</option>
+                          <option value="1й квартал 2039 года">1й квартал 2039 года</option>
+                          <option value="3 месяца">3 месяца</option>
+                          <option value="1й квартал 2039 года">1й квартал 2039 года</option>
                         </select>
                       </div>
-                      <div class="lw-select">
-                        <select class="custom-select">
-                          <option value="Цена от - до, руб.">Цена от - до, руб.</option>
-                          <option value="1 000 000 - 5 000 000">1 000 000 - 5 000 000</option>
-                          <option value="10 000 000 - 50 000 000">10 000 000 - 50 000 000</option>
-                          <option value="100 000 000 - 500 000 000">100 000 000 - 500 000 000</option>
-                        </select>
+                      <div class="lw-main-input-wrapper"><span>Цена:</span>
+                        <input type="text" placeholder="От">
+                        <input type="text" placeholder="До">
                       </div>
-                      <div class="lw-select">
-                        <select class="custom-select">
-                          <option value="Тип квартиры">Тип квартиры</option>
-                          <option value="1-комнатная">1-комнатная</option>
-                          <option value="2х-комнатная">2х-комнатная</option>
-                          <option value="3х-комнатная">3х-комнатная</option>
-                          <option value="4х-комнатная">4х-комнатная</option>
-                        </select>
-                      </div>
+            <div class="lw-multiple-checker">
+              <div class="lw-multiple-checker-panel"><span>Тип квартиры</span></div>
+              <div class="lw-multiple-checker-container">
+                <input type="checkbox" id="lw_m_1" checked>
+                <label for="lw_m_1">Студия</label>
+                <input type="checkbox" id="lw_m_2">
+                <label for="lw_m_2">1к.кв.</label>
+                <input type="checkbox" id="lw_m_3" checked>
+                <label for="lw_m_3">2к.кв.</label>
+                <input type="checkbox" id="lw_m_4">
+                <label for="lw_m_4">3к.кв.</label>
+                <input type="checkbox" id="lw_m_5" checked>
+                <label for="lw_m_5">4к.кв.</label>
+                <input type="checkbox" id="lw_m_6" checked>
+                <label for="lw_m_6">5к.кв.</label>
+                <input type="checkbox" id="lw_m_7" checked>
+                <label for="lw_m_7">6+к.кв.</label>
+              </div>
+            </div>
                       <button class="lw-main-btn" type="button"><span>Подобрать</span>
                       </button>
           </div>

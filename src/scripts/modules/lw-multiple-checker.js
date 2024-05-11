@@ -1,86 +1,54 @@
 document.addEventListener("DOMContentLoaded", function () {
+  const checker = document.querySelector(".lw-multiple-checker");
 
-  const items = document.querySelectorAll(".lw-multiple-checker");
+  if (!checker) return;
 
-  if(!items.length) return;
+  const panel = checker.querySelector(".lw-multiple-checker-panel");
+  const controlsContainer = checker.querySelector(
+    ".lw-multiple-checker-container"
+  );
+  const panelTextNode = panel.querySelector("span");
+  const baseText = panelTextNode.innerHTML;
+  const ctrls = checker.querySelectorAll("input");
 
-  const openers = document.querySelectorAll(".lw-multiple-checker-panel");
+  const fillPanel = () => {
+    let text = "";
 
-  let activePanel = null;
-
-  const closeAllPanels = () => {
-    openers.forEach(opener => {
-      opener.classList.contains('is-open') ? opener.classList.remove('is-open') : null;
+    ctrls.forEach((ctrl) => {
+      if (ctrl.checked) {
+        text = `
+          ${text !== "" ? text + ", " : ""}
+          ${ctrl.nextElementSibling.innerHTML}`;
+      }
     });
-  }
 
-  const onClickSetActivePanel = (evt) => {
-    if(activePanel === null ) activePanel = evt.target;
-
-    if(evt.target.classList.contains('lw-multiple-checker-panel')) {
-      if(activePanel !== evt.target) {
-        closeAllPanels();
-        activePanel = evt.target;
-      }
-      activePanel.classList.toggle("is-open");
-    }
-  }
-
-  openers.forEach(opener => {
-    opener.addEventListener("click", onClickSetActivePanel);
-  });
-
-  let labels = document.querySelectorAll(".lw-multiple-checker label");
-
-  const addLabelToPanel = (target, container) => {
-    const panel = container.parentNode.querySelector('.lw-multiple-checker-panel.is-open');
-    const control = container.querySelector(`input[id="${target.getAttribute('for')}"]`);
-
-    if(!control.checked) {
-      const label = document.createElement("label");
-      label.setAttribute('for', target.getAttribute('for'));
-      label.innerHTML = target.innerHTML;
-      activePanel.appendChild(label);
-
-      label.addEventListener('click', onClickFillLabel);
+    if (text !== "") {
+      panelTextNode.innerHTML = text;
     } else {
-      removeLabelFromPanel(target, panel);
+      panelTextNode.innerHTML = baseText;
     }
-  }
+  };
 
-   removeLabelFromPanel = (target, panel) => {
-    setTimeout(() => {
-      const elem = panel.querySelector( `label[for="${target.getAttribute('for')}"]` );
-      panel.removeChild(elem);
-    }, 0);
-  }
+  fillPanel();
 
-  const onClickFillLabel = (evt) => {
-    const parent = evt.currentTarget.parentNode;
+  const onClickOpenChecker = () => {
+    panel.classList.toggle("is-open");
+  };
 
-    if(parent.classList.contains('lw-multiple-checker-container')) {
-      addLabelToPanel(evt.currentTarget, parent);
-    }
+  panel.addEventListener("click", onClickOpenChecker);
 
-    if(parent.classList.contains('lw-multiple-checker-panel')) {
-      removeLabelFromPanel(evt.currentTarget, parent);
-    }
-  }
+  document.addEventListener("click", (evt) => {
+    if (controlsContainer.contains(evt.target) || panel.contains(evt.target))
+      return;
 
-  labels.forEach(label => {
-    label.addEventListener('click', onClickFillLabel);
+    panel.classList.remove("is-open");
   });
 
-  const onOverlayClickClosePanels = (evt) => {
-    if(activePanel && activePanel.classList.contains('is-open')) {
-      const activeContainer = activePanel.nextElementSibling;
+  const controls = checker.querySelectorAll(
+    ".lw-multiple-checker-container input"
+  );
 
-      if(!activePanel.contains(evt.target) && !activeContainer.contains(evt.target)) {
-        closeAllPanels();
-        activePanel = null;
-      }
-    }
-  }
-
-  document.addEventListener('click', onOverlayClickClosePanels, true);
+  controls.forEach((ctrl) => {
+    ctrl.addEventListener("change", fillPanel);
+  });
 });

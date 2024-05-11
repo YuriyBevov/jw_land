@@ -1,4 +1,8 @@
 include ../mixins/object-card
+include ../mixins/lw-main-slider
+include ../mixins/object-station-list
+include ../mixins/lw-simple-table
+include ../mixins/lw-btn
 
 section.object-detail-map
   .lw-container
@@ -51,3 +55,129 @@ section.object-detail-map
         ]
       }
     })
+
+section.object-detail
+  .lw-container.object-detail__container
+    span.lw-text.lw-text--md.lw-text--bold Описание ЖК
+    .object-detail__main
+      +lw-main-slider({
+        slides: [
+          {
+            img: 'object-slide-1.png'
+          },
+          {
+            img: 'object-slide-2.png'
+          },
+        ]
+      })
+      .object-detail__info
+        span.lw-text.lw-text--md.lw-text--semi Просторный ЖК бизнес-класса “Белые ночи” у Пресненской набережной
+
+        +lw-btn({
+          cls: 'lw-simple-btn lw-simple-btn--success-color collapsed-block-opener',
+          tag: 'button',
+          text: 'Подробнее',
+          icon: 'icon-arr-d-green.svg',
+          iconSide: 'right'
+        })
+
+        .collapsed-block
+          small.lw-text.lw-text--light Чкаловский Нагатинская набережная Судостроительной улицы район
+          span.lw-text г. Москва, просп. Центральный проезд Хорошевского Серебряного Бора, д.1455550, стр. 145, д. 123, к. 1234
+
+          +object-station-list(
+            [
+              {
+                name: 'Волгоградский проспект',
+                ambulationTime: '20 мин',
+                ambulationTypeName: 'пешком',
+                ambulationTypeIcon: 'icon-man.svg',
+                ambulationTypeIconWidth: '14',
+                ambulationTypeIconHeight: '14'
+              },
+
+              {
+                name: 'Волгоградский проспект',
+                ambulationTime: '20 мин',
+                ambulationTypeName: 'пешком',
+                ambulationTypeIcon: 'icon-man.svg',
+                ambulationTypeIconWidth: '14',
+                ambulationTypeIconHeight: '14'
+              },
+
+              {
+                name: 'Волгоградский проспект',
+                ambulationTime: '20 мин',
+                ambulationTypeName: 'пешком',
+                ambulationTypeIcon: 'icon-man.svg',
+                ambulationTypeIconWidth: '14',
+                ambulationTypeIconHeight: '14'
+              },
+            ]
+          )
+
+          .object-detail__chars
+            +lw-simple-table({
+              tbody: {
+                rows: [
+                  {
+                    tds: [
+                      {
+                        text: '№ дома'
+                      },
+                      {
+                        text: '12',
+                      },
+                    ]
+                  },
+                  {
+                    tds: [
+                      {
+                        text: 'Корпус'
+                      },
+                      {
+                        text: '3'
+                      },
+                    ]
+                  },
+                  {
+                    tds: [
+                      {
+                        text: 'Этажей'
+                      },
+                      {
+                        text: '25'
+                      },
+                    ]
+                  },
+                  {
+                    tds: [
+                      {
+                        text: 'Срок сдачи'
+                      },
+                      {
+                        text: '3 квартал 2022<br>3 квартал 2022<br>3 квартал 2022'
+                      },
+                    ]
+                  }
+                ]
+              }
+            })
+
+    .object-detail__desc
+      p.lw-text.lw-text--light.lw-text-truncate.truncated
+        | Идею сочетания городской застройки с общественными зданиями и предприятиями социального назначения начали внедрять давно, но лишь появление жилых комплексов позволило приблизить многие услуги к людям.<br>
+        | В идеале итогом строительства жилых комплексов становится оптимальное сочетание жилых помещений (квартир) и нежилых площадей, предназначенных для комплексного бытового обслуживания их жителей.<br>
+        | Естественно, что жилые комплексы могут сильно различаться по наличию дополнительных услуг и уровню предоставляемого комфорта – каждый из них решает свою градостроительную задачу.
+        | <br><br>
+        | Идею сочетания городской застройки с общественными зданиями и предприятиями социального назначения начали внедрять давно, но лишь появление жилых комплексов позволило приблизить многие услуги к людям.<br>
+        | В идеале итогом строительства жилых комплексов становится оптимальное сочетание жилых помещений (квартир) и нежилых площадей, предназначенных для комплексного бытового обслуживания их жителей.<br>
+        | Естественно, что жилые комплексы могут сильно различаться по наличию дополнительных услуг и уровню предоставляемого комфорта – каждый из них решает свою градостроительную задачу.
+
+      +lw-btn({
+        cls: 'lw-simple-btn lw-simple-btn--success-color text-expand-btn',
+        tag: 'button',
+        text: 'Читать далее...',
+      })
+    .object-detail__map
+      <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A0bf5ace7c58a15845578e7fe1e46fd0e19af91d80973dca246c4487c4e29b8ee&amp;source=constructor" width="900" height="400" frameborder="0"></iframe>

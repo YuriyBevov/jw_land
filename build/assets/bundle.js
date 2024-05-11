@@ -1,6 +1,32 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/scripts/modules/collapsed-block.js":
+/*!************************************************!*\
+  !*** ./src/scripts/modules/collapsed-block.js ***!
+  \************************************************/
+/***/ (() => {
+
+const openers = document.querySelectorAll(".collapsed-block-opener");
+if (openers.length) {
+  openers.forEach(opener => {
+    opener.addEventListener("click", evt => {
+      const collapsedBlock = evt.currentTarget.nextElementSibling;
+      collapsedBlock.classList.toggle("expanded");
+      const textNode = opener.querySelector("span");
+      if (collapsedBlock.classList.contains("expanded")) {
+        textNode.innerHTML = "Свернуть";
+        !opener.classList.contains("active") ? opener.classList.add("active") : null;
+      } else {
+        textNode.innerHTML = "Подробнее";
+        opener.classList.contains("active") ? opener.classList.remove("active") : null;
+      }
+    });
+  });
+}
+
+/***/ }),
+
 /***/ "./src/scripts/modules/custom-select.js":
 /*!**********************************************!*\
   !*** ./src/scripts/modules/custom-select.js ***!
@@ -34,59 +60,6 @@ if (pagSelect) {
 
 /***/ }),
 
-/***/ "./src/scripts/modules/lw-checkbox-group-selecter.js":
-/*!***********************************************************!*\
-  !*** ./src/scripts/modules/lw-checkbox-group-selecter.js ***!
-  \***********************************************************/
-/***/ (() => {
-
-document.addEventListener("DOMContentLoaded", function () {
-  const selecters = document.querySelectorAll(".lw-checkbox-group-head-control input");
-  if (!selecters.length) return;
-  selecters.forEach(selecter => {
-    if (!selecter) return;
-    const onClickToggleCheckboxes = evt => {
-      const target = evt.target;
-      const group = target.closest('.lw-checkbox-group__header').nextElementSibling;
-      group.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
-        if (target.checked) {
-          checkbox.checked = true;
-          const checkboxes = group.querySelectorAll('input[type="checkbox"]');
-          const onClickChangeMainCheckboxState = () => {
-            target.checked = false;
-            checkboxes.forEach(checkbox => {
-              checkbox.removeEventListener('change', onClickChangeMainCheckboxState);
-            });
-          };
-          checkboxes.forEach(checkbox => {
-            checkbox.addEventListener('change', onClickChangeMainCheckboxState);
-          });
-        } else {
-          checkbox.checked = false;
-        }
-      });
-    };
-    selecter.addEventListener('change', onClickToggleCheckboxes);
-  });
-  const ctrls = document.querySelectorAll('.lw-control-group input[type="checkbox"]:not(.lw-checkbox-group-head-control input[type="checkbox"])');
-  if (!ctrls.length) return;
-  const onChangeSetHeadControlActive = evt => {
-    const group = evt.target.closest('.lw-control-group');
-    const checkboxes = group.querySelectorAll('input[type="checkbox"]');
-    const checkedCheckboxes = group.querySelectorAll('input[type="checkbox"]:checked');
-    if (checkboxes.length === checkedCheckboxes.length) {
-      group.previousElementSibling.querySelector('input[type="checkbox"]').checked = true;
-    } else {
-      group.previousElementSibling.querySelector('input[type="checkbox"]').checked = false;
-    }
-  };
-  ctrls.forEach(ctrl => {
-    ctrl.addEventListener('change', onChangeSetHeadControlActive);
-  });
-});
-
-/***/ }),
-
 /***/ "./src/scripts/modules/lw-fw-btn.js":
 /*!******************************************!*\
   !*** ./src/scripts/modules/lw-fw-btn.js ***!
@@ -111,70 +84,41 @@ if (favs.length) {
 /***/ (() => {
 
 document.addEventListener("DOMContentLoaded", function () {
-  const items = document.querySelectorAll(".lw-multiple-checker");
-  if (!items.length) return;
-  const openers = document.querySelectorAll(".lw-multiple-checker-panel");
-  let activePanel = null;
-  const closeAllPanels = () => {
-    openers.forEach(opener => {
-      opener.classList.contains('is-open') ? opener.classList.remove('is-open') : null;
+  const checker = document.querySelector(".lw-multiple-checker");
+  if (!checker) return;
+  const panel = checker.querySelector(".lw-multiple-checker-panel");
+  const controlsContainer = checker.querySelector(".lw-multiple-checker-container");
+  const panelTextNode = panel.querySelector("span");
+  const baseText = panelTextNode.innerHTML;
+  const ctrls = checker.querySelectorAll("input");
+  const fillPanel = () => {
+    let text = "";
+    ctrls.forEach(ctrl => {
+      if (ctrl.checked) {
+        text = `
+          ${text !== "" ? text + ", " : ""}
+          ${ctrl.nextElementSibling.innerHTML}`;
+      }
     });
-  };
-  const onClickSetActivePanel = evt => {
-    if (activePanel === null) activePanel = evt.target;
-    if (evt.target.classList.contains('lw-multiple-checker-panel')) {
-      if (activePanel !== evt.target) {
-        closeAllPanels();
-        activePanel = evt.target;
-      }
-      activePanel.classList.toggle("is-open");
-    }
-  };
-  openers.forEach(opener => {
-    opener.addEventListener("click", onClickSetActivePanel);
-  });
-  let labels = document.querySelectorAll(".lw-multiple-checker label");
-  const addLabelToPanel = (target, container) => {
-    const panel = container.parentNode.querySelector('.lw-multiple-checker-panel.is-open');
-    const control = container.querySelector(`input[id="${target.getAttribute('for')}"]`);
-    if (!control.checked) {
-      const label = document.createElement("label");
-      label.setAttribute('for', target.getAttribute('for'));
-      label.innerHTML = target.innerHTML;
-      activePanel.appendChild(label);
-      label.addEventListener('click', onClickFillLabel);
+    if (text !== "") {
+      panelTextNode.innerHTML = text;
     } else {
-      removeLabelFromPanel(target, panel);
+      panelTextNode.innerHTML = baseText;
     }
   };
-  removeLabelFromPanel = (target, panel) => {
-    setTimeout(() => {
-      const elem = panel.querySelector(`label[for="${target.getAttribute('for')}"]`);
-      panel.removeChild(elem);
-    }, 0);
+  fillPanel();
+  const onClickOpenChecker = () => {
+    panel.classList.toggle("is-open");
   };
-  const onClickFillLabel = evt => {
-    const parent = evt.currentTarget.parentNode;
-    if (parent.classList.contains('lw-multiple-checker-container')) {
-      addLabelToPanel(evt.currentTarget, parent);
-    }
-    if (parent.classList.contains('lw-multiple-checker-panel')) {
-      removeLabelFromPanel(evt.currentTarget, parent);
-    }
-  };
-  labels.forEach(label => {
-    label.addEventListener('click', onClickFillLabel);
+  panel.addEventListener("click", onClickOpenChecker);
+  document.addEventListener("click", evt => {
+    if (controlsContainer.contains(evt.target) || panel.contains(evt.target)) return;
+    panel.classList.remove("is-open");
   });
-  const onOverlayClickClosePanels = evt => {
-    if (activePanel && activePanel.classList.contains('is-open')) {
-      const activeContainer = activePanel.nextElementSibling;
-      if (!activePanel.contains(evt.target) && !activeContainer.contains(evt.target)) {
-        closeAllPanels();
-        activePanel = null;
-      }
-    }
-  };
-  document.addEventListener('click', onOverlayClickClosePanels, true);
+  const controls = checker.querySelectorAll(".lw-multiple-checker-container input");
+  controls.forEach(ctrl => {
+    ctrl.addEventListener("change", fillPanel);
+  });
 });
 
 /***/ }),
@@ -241,6 +185,32 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
+/***/ }),
+
+/***/ "./src/scripts/modules/text-truncate-expand.js":
+/*!*****************************************************!*\
+  !*** ./src/scripts/modules/text-truncate-expand.js ***!
+  \*****************************************************/
+/***/ (() => {
+
+const btns = document.querySelectorAll(".text-expand-btn");
+if (btns.length) {
+  const onClickExpandText = evt => {
+    const target = evt.currentTarget;
+    const text = target.parentNode.querySelector(".lw-text-truncate");
+    const textNode = target.querySelector("span");
+    text.classList.toggle("truncated");
+    if (text.classList.contains("truncated")) {
+      textNode.innerHTML = "Читать далее...";
+    } else {
+      textNode.innerHTML = "Свернуть";
+    }
+  };
+  btns.forEach(btn => {
+    btn.addEventListener("click", onClickExpandText);
+  });
+}
 
 /***/ }),
 
@@ -14096,14 +14066,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_yMaps__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_modules_yMaps__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _modules_lw_multiple_checker__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/lw-multiple-checker */ "./src/scripts/modules/lw-multiple-checker.js");
 /* harmony import */ var _modules_lw_multiple_checker__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_modules_lw_multiple_checker__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _modules_lw_checkbox_group_selecter__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/lw-checkbox-group-selecter */ "./src/scripts/modules/lw-checkbox-group-selecter.js");
-/* harmony import */ var _modules_lw_checkbox_group_selecter__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_modules_lw_checkbox_group_selecter__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _modules_lw_object_list__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/lw-object-list */ "./src/scripts/modules/lw-object-list.js");
-/* harmony import */ var _modules_lw_object_list__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_modules_lw_object_list__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _modules_lw_fw_btn__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/lw-fw-btn */ "./src/scripts/modules/lw-fw-btn.js");
-/* harmony import */ var _modules_lw_fw_btn__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_modules_lw_fw_btn__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _modules_swiper__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/swiper */ "./src/scripts/modules/swiper.js");
+/* harmony import */ var _modules_lw_object_list__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/lw-object-list */ "./src/scripts/modules/lw-object-list.js");
+/* harmony import */ var _modules_lw_object_list__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_modules_lw_object_list__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _modules_lw_fw_btn__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/lw-fw-btn */ "./src/scripts/modules/lw-fw-btn.js");
+/* harmony import */ var _modules_lw_fw_btn__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_modules_lw_fw_btn__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _modules_swiper__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/swiper */ "./src/scripts/modules/swiper.js");
+/* harmony import */ var _modules_collapsed_block__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/collapsed-block */ "./src/scripts/modules/collapsed-block.js");
+/* harmony import */ var _modules_collapsed_block__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_modules_collapsed_block__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _modules_text_truncate_expand__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./modules/text-truncate-expand */ "./src/scripts/modules/text-truncate-expand.js");
+/* harmony import */ var _modules_text_truncate_expand__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_modules_text_truncate_expand__WEBPACK_IMPORTED_MODULE_8__);
 // import "./modules/header-menu";
+
 
 
 

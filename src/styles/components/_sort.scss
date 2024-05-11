@@ -1,10 +1,11 @@
 .sort {
   display: flex;
-  align-items: center;
+  flex-wrap: wrap;
+  align-items: flex-start;
   gap: 20px;
 
   & > * {
-    width: 25%;
+    width: calc(25% - 20px);
 
     min-height: 40px;
   }
@@ -14,15 +15,14 @@
   }
 
   @include m-b-down(1140px) {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-
     & > * {
-      width: 100%;
+      width: calc(50% - 10px);
     }
   }
 
   @include m-b-down(620px) {
-    grid-template-columns: 1fr;
+    & > * {
+      width: 100%;
+    }
   }
 }
