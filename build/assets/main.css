@@ -1572,6 +1572,111 @@ section:last-child {
   }
 }
 
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  max-width: 100vw;
+  max-width: 100dvw;
+  height: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  background-color: transparent;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  z-index: 99;
+  overflow: hidden;
+  display: none;
+}
+@media (max-width: 767px) {
+  .mobile-menu.is-open {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-animation: fillBg 0.5s ease-in-out forwards;
+    animation: fillBg 0.5s ease-in-out forwards;
+  }
+  .mobile-menu.is-open .mobile-menu__content {
+    -webkit-animation: showMenu 0.5s ease-in-out forwards;
+    animation: showMenu 0.5s ease-in-out forwards;
+  }
+}
+@-webkit-keyframes fillBg {
+  0% {
+    background-color: transparent;
+  }
+  100% {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+}
+@keyframes fillBg {
+  0% {
+    background-color: transparent;
+  }
+  100% {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+}
+@-webkit-keyframes showMenu {
+  0% {
+    right: -100vw;
+  }
+  100% {
+    right: 0;
+  }
+}
+@keyframes showMenu {
+  0% {
+    right: -100vw;
+  }
+  100% {
+    right: 0;
+  }
+}
+.mobile-menu__content {
+  width: 100%;
+  max-width: 400px;
+  height: inherit;
+  background-color: #ffffff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding: 0 20px;
+  overflow-y: auto;
+  position: absolute;
+  right: -100vw;
+  top: 0;
+}
+.mobile-menu .main-header__contacts,
+.mobile-menu .main-header__desc {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0;
+}
+.mobile-menu__section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: 20px 0;
+}
+.mobile-menu__section:not(:last-child) {
+  border-bottom: 1px solid #e5e5e5;
+}
+
 /* Компоненты */
 .img-frame {
   position: relative;

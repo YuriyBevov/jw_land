@@ -1,117 +1,157 @@
 const map = document.querySelector("#yMaps");
 
 if (map) {
-  const centerCoords = [59.90297506420561, 30.39827949999997];
-
-  let myMap = null;
-
+  let myMap;
   window.addEventListener("load", () => {
-    ymaps.ready(init);
-  });
+    const centerCoords = map.dataset.center.split(","); //[59.90297506420561, 30.39827949999997]; //map.dataset.center;
+    const placemarkCoords = map.dataset.coords.split(",");
 
-  function init() {
-    // Создание карты.
-    myMap = new ymaps.Map("yMaps", {
-      center: centerCoords,
-      zoom: 17,
-      controls: [],
-      behaviors: ["drag"]
-    });
-
-    const MyIconContentLayout = ymaps.templateLayoutFactory.createClass(
-      '<div class="ymaps-icon-content-layout">$[properties.iconContent]</div>'
-    );
-
-    // Метка
-    const officePlacemark = new ymaps.Placemark(
-      [59.90297506420561, 30.39827949999997],
-      {
-        iconContent: "Завод металических дверей"
-      },
-      {
-        // Опции.
-        // Необходимо указать данный тип макета.
-        iconLayout: "default#imageWithContent",
-        // Своё изображение иконки метки.
-        iconImageHref: "assets/img/icon-pin.svg",
-        // Размеры метки.
-        iconImageSize: [26, 40],
-        // Смещение левого верхнего угла иконки относительно
-        // её "ножки" (точки привязки).
-        iconImageOffset: [-13, -20],
-        iconContentOffset: [20, 15],
-
-        iconContentLayout: MyIconContentLayout
-      }
-    );
-
-    myMap.geoObjects.add(officePlacemark);
-
-    // ZOOM-CONTROL
-    let ZoomLayout = ymaps.templateLayoutFactory.createClass(
-      //Шаблон html кнопок зума
-      "<div class='zoom-btns'>" +
-        "<button id='zoom-in' class='zoom-btn zoom-btn-in' aria-label='Увеличить масштаб'>" +
-        "<svg width='14' height='14'>" +
-        "<use xlink:href='./assets/sprite.svg#icon-zoom-in'>" +
-        "</svg>" +
-        "</button>" +
-        "<button id='zoom-out' class='zoom-btn zoom-btn-out' aria-label='Уменьшить масштаб'>" +
-        "<svg width='14' height='2'>" +
-        "<use xlink:href='./assets/sprite.svg#icon-zoom-out'>" +
-        "</svg>" +
-        "</button>" +
-        "</div>",
-      {
-        // Переопределяем методы макета, чтобы выполнять дополнительные действия
-        // при построении и очистке макета.
-        build: function () {
-          // Вызываем родительский метод build.
-          ZoomLayout.superclass.build.call(this);
-
-          // Привязываем функции-обработчики к контексту и сохраняем ссылки
-          // на них, чтобы потом отписаться от событий.
-          this.zoomInCallback = ymaps.util.bind(this.zoomIn, this);
-          this.zoomOutCallback = ymaps.util.bind(this.zoomOut, this);
-
-          // Начинаем слушать клики на кнопках макета.
-          let zoomInBtn = document.getElementById("zoom-in");
-          let zoomOutBtn = document.getElementById("zoom-out");
-
-          zoomInBtn.addEventListener("click", this.zoomInCallback);
-          zoomOutBtn.addEventListener("click", this.zoomOutCallback);
+    ymaps.ready(function () {
+      myMap = new ymaps.Map(
+        "yMaps",
+        {
+          zoom: 17,
+          center: centerCoords,
+          controls: []
         },
-
-        clear: function () {
-          // Снимаем обработчики кликов.
-          zoomInBtn.removeEventListener("click", this.zoomInCallback);
-          zoomOutBtn.removeEventListener("click", this.zoomOutCallback);
-          // Вызываем родительский метод clear.
-          ZoomLayout.superclass.clear.call(this);
-        },
-
-        zoomIn: function () {
-          myMap.balloon.close();
-
-          let map = this.getData().control.getMap();
-          map.setZoom(map.getZoom() + 1, { checkZoomRange: true });
-        },
-
-        zoomOut: function () {
-          myMap.balloon.close();
-
-          let map = this.getData().control.getMap();
-          map.setZoom(map.getZoom() - 1, { checkZoomRange: true });
+        {
+          searchControlProvider: "yandex#search"
         }
-      }
-    );
+      );
 
-    let zoomControl = new ymaps.control.ZoomControl({
-      options: {
-        layout: ZoomLayout,
-        position: { right: "30px", bottom: "50px" }
-      }
+      const MyIconContentLayout = ymaps.templateLayoutFactory.createClass(
+        '<div class="ymaps-icon-content-layout">$[properties.iconContent]</div>'
+      );
+
+      const myPlacemark = new ymaps.Placemark(
+        placemarkCoords,
+        {
+          balloonContent: "<div>Я вышел за границы карты</div>"
+        },
+        {
+          balloonPanelMaxMapArea: 0
+        },
+        {
+          iconContent: ""
+        },
+        {
+          // Опции.
+          // Необходимо указать данный тип макета.
+          iconLayout: "default#imageWithContent",
+          // Своё изображение иконки метки.
+          iconImageHref: "assets/img/icon-pin.svg",
+          // Размеры метки.
+          iconImageSize: [26, 40],
+          // Смещение левого верхнего угла иконки относительно
+          // её "ножки" (точки привязки).
+          iconImageOffset: [-13, -20],
+          iconContentOffset: [20, 15],
+
+          iconContentLayout: MyIconContentLayout
+        }
+      );
+      myMap.geoObjects.add(myPlacemark);
+
+      observeEvents(myMap);
+
+      // const officePlacemark = new ymaps.Placemark(
+      //   placemarkCoords,
+      //   {
+      //     iconContent: ""
+      //   },
+      //   {
+      //     // Опции.
+      //     // Необходимо указать данный тип макета.
+      //     iconLayout: "default#imageWithContent",
+      //     // Своё изображение иконки метки.
+      //     iconImageHref: "assets/img/icon-pin.svg",
+      //     // Размеры метки.
+      //     iconImageSize: [26, 40],
+      //     // Смещение левого верхнего угла иконки относительно
+      //     // её "ножки" (точки привязки).
+      //     iconImageOffset: [-13, -20],
+      //     iconContentOffset: [20, 15],
+
+      //     iconContentLayout: MyIconContentLayout
+      //   }
+      // );
+
+      // myMap.geoObjects.add(officePlacemark);
+
+      // myPlacemark.balloon.open();
     });
-    myMap.controls.add(zoomControl);
+  });
+  function observeEvents(map) {
+    let mapEventsGroup;
+    map.geoObjects.each(function (geoObject) {
+      geoObject.balloon.events
+        // При открытии балуна начинаем слушать изменение центра карты.
+        .add("open", function (e1) {
+          const placemark = e1.get("target");
+          // Вызываем функцию в двух случаях:
+          mapEventsGroup = map.events
+            .group()
+            // 1) в начале движения (если балун во внешнем контейнере);
+            .add("actiontick", function (e2) {
+              if (placemark.options.get("balloonPane") == "outerBalloon") {
+                setBalloonPane(map, placemark, e2.get("tick"));
+              }
+            })
+            // 2) в конце движения (если балун во внутреннем контейнере).
+            .add("actiontickcomplete", function (e2) {
+              if (placemark.options.get("balloonPane") != "outerBalloon") {
+                setBalloonPane(map, placemark, e2.get("tick"));
+              }
+            });
+          // Вызываем функцию сразу после открытия.
+          setBalloonPane(map, placemark);
+        })
+        // При закрытии балуна удаляем слушатели.
+        .add("close", function () {
+          mapEventsGroup.removeAll();
+        });
+    });
+  }
+
+  function setBalloonPane(map, placemark, mapData) {
+    mapData = mapData || {
+      globalPixelCenter: map.getGlobalPixelCenter(),
+      zoom: map.getZoom()
+    };
+
+    const mapSize = map.container.getSize(),
+      mapBounds = [
+        [
+          mapData.globalPixelCenter[0] - mapSize[0] / 2,
+          mapData.globalPixelCenter[1] - mapSize[1] / 2
+        ],
+        [
+          mapData.globalPixelCenter[0] + mapSize[0] / 2,
+          mapData.globalPixelCenter[1] + mapSize[1] / 2
+        ]
+      ],
+      balloonPosition = placemark.balloon.getPosition(),
+      // Используется при изменении зума.
+      zoomFactor = Math.pow(2, mapData.zoom - map.getZoom()),
+      // Определяем, попадает ли точка привязки балуна в видимую область карты.
+      pointInBounds = ymaps.util.pixelBounds.containsPoint(mapBounds, [
+        balloonPosition[0] * zoomFactor,
+        balloonPosition[1] * zoomFactor
+      ]),
+      isInOutersPane = placemark.options.get("balloonPane") == "outerBalloon";
+
+    // Если точка привязки не попадает в видимую область карты, переносим балун во внутренний контейнер
+    if (!pointInBounds && isInOutersPane) {
+      placemark.options.set({
+        balloonPane: "balloon",
+        balloonShadowPane: "shadows"
+      });
+      // и наоборот.
+    } else if (pointInBounds && !isInOutersPane) {
+      placemark.options.set({
+        balloonPane: "outerBalloon",
+        balloonShadowPane: "outerBalloon"
+      });
+    }
   }
 }

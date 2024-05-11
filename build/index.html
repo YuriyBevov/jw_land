@@ -18,9 +18,28 @@
         <div class="user"><img class="user-avatar" src="./assets/img/user-avatar.png" alt="Аватар" width="60" height="60">
           <div class="user-content"><span class="lw-text lw-text--sm">Ваш менеджер <span class="user-name">Константинов Константин</span></span><span class="user-phone lw-text lw-text--sm lw-text--light">Телефон: <a href="tel:+79999999999">+7 (999) 999 99 99</a></span><span class="user-mail lw-text lw-text--sm lw-text--light">Почта: <a href="mailto:info-email@mail.ru">info-email@mail.ru</a></span></div>
         </div>
-        <button class="burger" type="button" aria-label="Открыть меню"><img src="./assets/img/icon-burger.svg" alt="Бупгер" width="24" height="18"></button>
+        <button class="burger mobile-menu-opener" type="button" aria-label="Открыть меню"><img src="./assets/img/icon-burger.svg" alt="Бупгер" width="24" height="18"></button>
       </div>
     </header>
+    <div class="mobile-menu">
+      <div class="mobile-menu__content">
+        <div class="mobile-menu__section"><a href="index.html" aria-label="На главную"><img class="lw-logo" src="./assets/img/icon-logo.svg" alt="JoyWork" width="125" height="40"></a>
+          <button class="burger mobile-menu-closer" type="button" aria-label="Закрыть меню"><img src="./assets/img/icon-close.svg" alt="Бургер" width="24" height="18"></button>
+        </div>
+        <div class="mobile-menu__section"><small class="main-header__desc lw-text lw-text--sm lw-text--light">Агентство недвижимости <br>Какое то название агентства недвижимости</small></div>
+        <div class="mobile-menu__section">
+          <div class="main-header__contacts"><a class="lw-text" href="tel:88129815617">8 812 981-56-17</a><a class="lw-text lw-text--sm lw-text--success" href="mailto:info-email@mail.ru">info-email@mail.ru</a><a class="lw-text lw-text--sm lw-text--info" href="https://joywork.ru/">https://joywork.ru/</a></div>
+        </div>
+        <div class="mobile-menu__section">
+          <div class="user"><img class="user-avatar" src="./assets/img/user-avatar.png" alt="Аватар" width="60" height="60">
+            <div class="user-content"><span class="lw-text lw-text--sm">Ваш менеджер <span class="user-name">Константинов Константин</span></span><span class="user-phone lw-text lw-text--sm lw-text--light">Телефон: <a href="tel:+79999999999">+7 (999) 999 99 99</a></span><span class="user-mail lw-text lw-text--sm lw-text--light">Почта: <a href="mailto:info-email@mail.ru">info-email@mail.ru</a></span></div>
+          </div>
+        </div>
+        <div class="mobile-menu__section">
+          <button class="fv-btn" type="button"><img src="./assets/img/icon-heart.svg" alt="Избранное" width="20" height="20"><span>Избранное</span><span class="fv-btn-count">101</span></button>
+        </div>
+      </div>
+    </div>
     <main>
       <section class="objects">
         <div class="lw-container objects__container">
@@ -71,7 +90,7 @@
                       </button>
           </div>
           <div class="objects__map">
-            <div id="yMaps"></div>
+            <div id="yMaps" data-center="59.90297506420561, 30.39827949999997" data-coords="59.90297506420561, 30.39827949999997"></div>
           </div>
           <div class="objects__grid">
                   <div class="object-preview-card">

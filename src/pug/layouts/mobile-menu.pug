@@ -1,0 +1,22 @@
+include ../mixins/lw-logo
+
+.mobile-menu
+  .mobile-menu__content
+    .mobile-menu__section
+      +lw-logo({
+        img: 'icon-logo.svg',
+        imgAlt: 'JoyWork',
+        imgHeight: '40',
+        imgWidth: '125'
+      })
+      button(type="button" aria-label="Закрыть меню").burger.mobile-menu-closer
+        img(src="./assets/img/icon-close.svg" alt="Бургер" width="24" height="18")
+
+    .mobile-menu__section
+      include ../components/company-slogan
+    .mobile-menu__section
+      include ../components/header-contacts
+    .mobile-menu__section
+      include ../components/user
+    .mobile-menu__section
+      include ../components/fv-btn
