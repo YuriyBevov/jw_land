@@ -74,9 +74,11 @@
     }
 
     &-option {
+      font-style: 14px;
       width: 100%;
       padding: 10px 16px;
       background-color: transparent;
+      color: #333333;
 
       &:not(:last-child) {
         border-bottom: 1px solid #dedede;

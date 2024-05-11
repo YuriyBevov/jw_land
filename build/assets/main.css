@@ -1863,9 +1863,11 @@ section:last-child {
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
 .lw-select .custom-select-option {
+  font-style: 14px;
   width: 100%;
   padding: 10px 16px;
   background-color: transparent;
+  color: #333333;
 }
 .lw-select .custom-select-option:not(:last-child) {
   border-bottom: 1px solid #dedede;
@@ -2529,6 +2531,7 @@ section:last-child {
   box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.04);
 }
 .lw-multiple-checker-panel span {
+  font-size: 14px;
   white-space: nowrap;
   text-overflow: ellipsis;
   width: 100%;
@@ -2580,7 +2583,7 @@ section:last-child {
   display: none;
 }
 .lw-multiple-checker-container label {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 400;
   color: #333333;
   white-space: nowrap;
@@ -2669,23 +2672,23 @@ section:last-child {
   font-size: 14px;
 }
 .lw-main-input-wrapper input::-webkit-input-placeholder {
-  font-size: 12px;
+  font-size: 14px;
   color: var(--lw-main-input-color);
 }
 .lw-main-input-wrapper input::-moz-placeholder {
-  font-size: 12px;
+  font-size: 14px;
   color: var(--lw-main-input-color);
 }
 .lw-main-input-wrapper input:-ms-input-placeholder {
-  font-size: 12px;
+  font-size: 14px;
   color: var(--lw-main-input-color);
 }
 .lw-main-input-wrapper input::-ms-input-placeholder {
-  font-size: 12px;
+  font-size: 14px;
   color: var(--lw-main-input-color);
 }
 .lw-main-input-wrapper input::placeholder {
-  font-size: 12px;
+  font-size: 14px;
   color: var(--lw-main-input-color);
 }
 
