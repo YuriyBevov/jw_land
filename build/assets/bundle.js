@@ -11,8 +11,24 @@ const map = document.querySelector("#yMaps");
 if (map) {
   const centerCoords = map.dataset.center.split(","); //[59.90297506420561, 30.39827949999997]; //map.dataset.center;
   const placemarkCoords = map.dataset.coords.split(","); //[59.90297506420561, 30.39827949999997]; //map.dataset.coords;
-
-  console.log(centerCoords, placemarkCoords);
+  const objectImg = map.dataset.img;
+  const detailLink = map.dataset.link;
+  const objects = JSON.parse(map.dataset.objects);
+  let objectsNode = null;
+  if (objects) {
+    tbody = document.createElement("tbody");
+    objects.forEach(obj => {
+      const tr = document.createElement("tr");
+      const tdType = document.createElement("td");
+      tdType.innerHTML = obj.type;
+      const tdValue = document.createElement("td");
+      tdValue.innerHTML = obj.value;
+      tr.appendChild(tdType);
+      tr.appendChild(tdValue);
+      tbody.appendChild(tr);
+    });
+    objectsNode = tbody.innerHTML;
+  }
   let myMap = null;
   window.addEventListener("load", () => {
     ymaps.ready(init);
@@ -31,7 +47,27 @@ if (map) {
     // Метка
     const officePlacemark = new ymaps.Placemark(placemarkCoords, {
       iconContent: "",
-      balloonContent: "<div>Информация по ЖК</div>"
+      balloonContent: `
+          <div class="object-preview-card">
+            <div class="object-preview-card__header">
+              <img src=${objectImg} alt="Объект" width="360" height="220">
+            </div>
+            <div class="object-preview-card__content">
+              <table>
+                <thead>
+                  <tr>
+                    <td>Найдено:</td>
+                    <td>Кол-во:</td>
+                  </tr>
+                </thead>
+                <tbody>
+                ${objectsNode}
+                </tbody>
+              </table>
+              <a class="lw-main-btn lw-main-btn--outlined object-preview-card__detail-link" href=${detailLink}><span>Квартиры</span></a>
+            </div>
+          </div>
+        `
     }, {
       // Опции.
       // Необходимо указать данный тип макета.

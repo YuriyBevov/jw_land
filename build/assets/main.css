@@ -1752,6 +1752,97 @@ section:last-child {
   background-color: var(--accent);
 }
 
+[class*=-balloon] {
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  border-radius: 5px !important;
+  background-color: transparent !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  -webkit-box-sizing: border-box !important;
+  box-sizing: border-box !important;
+}
+@media (max-width: 396px) {
+  [class*=-balloon] {
+    border-radius: 0 !important;
+  }
+}
+[class*=-balloon] .object-preview-card {
+  background-color: var(--white);
+  border: none;
+  min-width: 240px;
+}
+@media (max-width: 396px) {
+  [class*=-balloon] .object-preview-card {
+    border-radius: 0;
+  }
+  [class*=-balloon] .object-preview-card .object-preview-card__header {
+    border-radius: 0;
+  }
+}
+[class*=-balloon] .object-preview-card .object-preview-card__detail-link {
+  min-height: 24px;
+  font-size: 14px;
+  font-weight: 600;
+}
+[class*=-balloon] .object-preview-card table {
+  padding: 0;
+  border: 0;
+  margin-bottom: 0;
+}
+[class*=-balloon] .object-preview-card table td {
+  vertical-align: top;
+  padding: 0;
+}
+[class*=-balloon] .object-preview-card table thead td {
+  font-weight: 600;
+  font-size: 14px;
+  color: #333333;
+  white-space: nowrap;
+  padding-bottom: 5px;
+}
+[class*=-balloon] .object-preview-card table tbody tr td:first-child {
+  font-size: 14px;
+  color: #7d7d7d;
+  padding-right: 10px;
+}
+[class*=-balloon] .object-preview-card table tbody tr td:last-child {
+  font-size: 14px;
+}
+[class*=-balloon] .object-preview-card .object-preview-card__content {
+  padding: 10px;
+  padding-top: 0;
+}
+[class*=-balloon] .object-preview-card .object-preview-card__header {
+  min-height: 120px;
+  max-height: 120px;
+}
+[class*=-balloon] .object-preview-card .object-preview-card__header img {
+  max-height: inherit;
+}
+
+[class*=-balloon__content] {
+  margin-right: 0 !important;
+  padding: 0 !important;
+  background-color: #ffffff !important;
+}
+
+[class*=-balloon__close] {
+  position: absolute !important;
+  top: 0 !important;
+  right: 0 !important;
+}
+
+[class*=-balloon__close-button] {
+  background: url("../assets/img/icon-close.svg") 50% no-repeat !important;
+  opacity: 1 !important;
+}
+@media (max-width: 396px) {
+  [class*=-balloon__close-button] {
+    right: 20px !important;
+  }
+}
+
 .fv-btn {
   gap: 8px;
   width: 100%;

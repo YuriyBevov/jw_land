@@ -16,7 +16,11 @@ section.objects
       })
 
     .objects__map
-      #yMaps(data-center="59.90297506420561, 30.39827949999997" data-coords="59.90297506420561, 30.39827949999997")
+      #yMaps(
+        data-center="59.90297506420561, 30.39827949999997" data-coords="59.90297506420561, 30.39827949999997"
+        data-img='./assets/img/object-2.jpg' data-link="object-detail.html"
+        data-objects=[{type:'1 кк',value: '1305'},{type:'2 кк',value: '105'},{type:'3 кк',value: '506'},{type:'4 кк',value: '608'},{type:'5 кк',value: '7'}]
+      )
 
     .objects__grid
       +object-preview-card({
