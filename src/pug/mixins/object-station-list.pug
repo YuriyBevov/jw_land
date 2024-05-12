@@ -6,7 +6,7 @@ mixin object-station-list(data)
       each station, index in data
         li.object-station-list-item(class= index > 1 ? 'object-station-list-item--hidden' : null)
           .object-station-list-item-side
-            img(src="./assets/img/icon-metro.svg" alt= station.name width="" height="")
+            img(src="./assets/img/icon-metro.svg" alt= station.name width="18" height="18")
             span.lw-text.lw-text--semi!= station.name
           .object-station-list-item-side
             span.lw-text.lw-text--light!= station.ambulationTime

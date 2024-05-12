@@ -4,7 +4,7 @@ include ../mixins/object-station-list
 include ../mixins/lw-simple-table
 include ../mixins/lw-btn
 
-section.object-detail-map
+.object-detail-map
   .lw-container
     +object-card({
       title: 'Просторная 2-х комнатная квартира ЖК “Белые ночи” д. 13, стр. 17, кв. 29203 2-х комнатная квартира ЖК “Белые ночи” д. 13, стр. 17, кв. 29203',
@@ -56,7 +56,7 @@ section.object-detail-map
       }
     })
 
-section.object-detail
+.object-detail
   .lw-container.object-detail__container
     span.lw-text.lw-text--md.lw-text--bold Описание ЖК
     .object-detail__main
@@ -78,7 +78,8 @@ section.object-detail
           tag: 'button',
           text: 'Подробнее',
           icon: 'icon-arr-d-green.svg',
-          iconSide: 'right'
+          iconSide: 'right',
+          iconAlt: 'Подробнее'
         })
 
         .collapsed-block
@@ -180,4 +181,4 @@ section.object-detail
         text: 'Читать далее...',
       })
     .object-detail__map
-      <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A0bf5ace7c58a15845578e7fe1e46fd0e19af91d80973dca246c4487c4e29b8ee&amp;source=constructor" width="900" height="400" frameborder="0"></iframe>
+      <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A0bf5ace7c58a15845578e7fe1e46fd0e19af91d80973dca246c4487c4e29b8ee&amp;source=constructor" width="900" height="400"></iframe>

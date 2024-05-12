@@ -6,9 +6,9 @@ mixin lw-simple-table(data)
           each row in data.thead.rows
             tr
               each data in row.tds
-                td(align = data.align ? data.align : 'left')!= data.text
+                td!= data.text
       tbody
         each row in data.tbody.rows
           tr
             each data in row.tds
-              td(align = data.align ? data.align : 'left')!= data.text
+              td!= data.text

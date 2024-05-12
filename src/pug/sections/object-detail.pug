@@ -5,7 +5,7 @@ include ../mixins/object-station-list
 include ../mixins/lw-main-slider
 include ../mixins/object-card
 
-section.object-detail
+.object-detail
   .lw-container.object-detail__container
     .object-detail__main
       +lw-main-slider({
@@ -29,6 +29,7 @@ section.object-detail
             icon: 'icon-map.svg',
             iconWidth: '24',
             iconHeight: '24',
+            iconAlt: 'На карте'
           })
 
           +lw-fv-btn({
