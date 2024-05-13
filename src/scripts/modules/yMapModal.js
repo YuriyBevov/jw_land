@@ -1,30 +1,8 @@
-const map = document.querySelector("#yMaps");
-
+const map = document.querySelector("#yMapModal");
+console.log(map);
 if (map) {
   const centerCoords = map.dataset.center.split(",");
   const placemarkCoords = map.dataset.coords.split(",");
-  const objectImg = map.dataset.img;
-  const detailLink = map.dataset.link;
-  const objects = JSON.parse(map.dataset.objects);
-
-  let objectsNode = null;
-
-  if (objects) {
-    tbody = document.createElement("tbody");
-
-    objects.forEach((obj) => {
-      const tr = document.createElement("tr");
-      const tdType = document.createElement("td");
-      tdType.innerHTML = obj.type;
-      const tdValue = document.createElement("td");
-      tdValue.innerHTML = obj.value;
-
-      tr.appendChild(tdType);
-      tr.appendChild(tdValue);
-      tbody.appendChild(tr);
-    });
-    objectsNode = tbody.innerHTML;
-  }
 
   let myMap = null;
 
@@ -35,7 +13,7 @@ if (map) {
   function init() {
     // Создание карты.
 
-    myMap = new ymaps.Map("yMaps", {
+    myMap = new ymaps.Map("yMapModal", {
       center: centerCoords,
       zoom: 17,
       controls: [],
@@ -51,27 +29,6 @@ if (map) {
       placemarkCoords,
       {
         iconContent: "",
-        balloonContent: `
-          <div class="object-preview-card">
-            <div class="object-preview-card__header">
-              <img src=${objectImg} alt="Объект" width="360" height="220">
-            </div>
-            <div class="object-preview-card__content">
-              <table>
-                <thead>
-                  <tr>
-                    <td>Найдено:</td>
-                    <td>Кол-во:</td>
-                  </tr>
-                </thead>
-                <tbody>
-                ${objectsNode}
-                </tbody>
-              </table>
-              <a class="lw-main-btn lw-main-btn--outlined object-preview-card__detail-link" href=${detailLink}><span>Квартиры</span></a>
-            </div>
-          </div>
-        `
       },
 
       {
@@ -160,12 +117,31 @@ if (map) {
     });
     myMap.controls.add(zoomControl);
 
-    const btn = document.querySelector(".ymaps-opener");
+    // const btn = document.querySelector(".modal-opener");
 
-    if (btn) {
-      btn.addEventListener("click", () => {
-        myMap.container.fitToViewport();
-      });
+    // if (btn) {
+    //   btn.addEventListener("click", () => {
+    //     myMap.container.fitToViewport();
+    //   });
+    // }
+
+    const setMapSize = () => {
+      const modalW = document.querySelector('.map-modal').getBoundingClientRect().width;
+      const modalH = document.querySelector('.map-modal').getBoundingClientRect().height;
+
+      map.style.width = `${modalW}px`;
+      map.style.height = `${modalH}px`;
+
+      console.log(modalW, modalH);
+      myMap.container.fitToViewport();
     }
+
+    window.addEventListener('resize', () => {
+      setMapSize();
+    });
+
+    setTimeout(() => {
+      setMapSize();
+    }, 0);
   }
 }

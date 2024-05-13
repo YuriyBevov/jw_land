@@ -5,7 +5,7 @@ include ../mixins/object-station-list
 include ../mixins/lw-main-slider
 include ../mixins/object-card
 
-.object-detail
+.section.object-detail
   .lw-container.object-detail__container
     .object-detail__main
       +lw-main-slider({
@@ -21,9 +21,8 @@ include ../mixins/object-card
       .object-detail__info
         .object-detail__info-top
           +lw-btn({
-            cls: 'lw-simple-btn lw-simple-btn--success-color',
-            tag: 'a',
-            href: 'object-detail-map.html',
+            cls: 'lw-simple-btn lw-simple-btn--success-color modal-opener',
+            tag: 'button',
 
             text: 'На карте',
             icon: 'icon-map.svg',

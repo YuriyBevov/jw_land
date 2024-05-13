@@ -42,9 +42,9 @@
     </div>
     <main>
       <div class="lw-container">
-        <div class="breadcrumbs"><a class="lw-text lw-text--medi lw-text--light" href="index.html">Жилые комплексы</a><a class="lw-text lw-text--medi lw-text--light" href="index.html">Жилые комплексы Санкт-Петербурга</a><a class="lw-text lw-text--medi lw-text--light" href="index.html">Жилые комплексы</a><a class="lw-text lw-text--medi lw-text--light" href="index.html">Жилые комплексы</a><span class="lw-text lw-text--medi lw-text--success">ЖК «Брустника»</span></div>
+        <div class="breadcrumbs"><a class="lw-text lw-text--medi lw-text--light" href="index.html">Жилые комплексы</a><span class="lw-text lw-text--medi lw-text--success">ЖК «Брустника»</span></div>
       </div>
-      <div class="object-detail">
+      <div class="section object-detail">
         <div class="lw-container object-detail__container">
           <div class="object-detail__main">
                   <div class="lw-main-slider">
@@ -58,7 +58,9 @@
                     </div>
                   </div>
             <div class="object-detail__info">
-              <div class="object-detail__info-top"><a class="lw-simple-btn lw-simple-btn--success-color" href="object-detail-map.html"><img src="./assets/img/icon-map.svg" alt="На карте" width="24" height="24"><span>На карте</span></a>
+              <div class="object-detail__info-top">
+                      <button class="lw-simple-btn lw-simple-btn--success-color modal-opener" type="button"><img src="./assets/img/icon-map.svg" alt="На карте" width="24" height="24"><span>На карте</span>
+                      </button>
                       <button class="lw-fv-btn" type="button" aria-label="Избранное"><span class="lw-text lw-text--light">В избранное</span>
                       </button>
               </div><span class="lw-text lw-text--md lw-text--semi">Просторный ЖК бизнес-класса “Белые ночи” у Пресненской набережной</span><small class="lw-text lw-text--light">Чкаловский Нагатинская набережная Судостроительной улицы район</small><span class="lw-text">г. Москва, просп. Центральный проезд Хорошевского Серебряного Бора, д.1455550, стр. 145, д. 123, к. 1234</span>
@@ -503,6 +505,14 @@
         </div>
       </div>
     </main>
+    <div class="modal-overlay">
+      <div class="modal map-modal">
+        <button class="modal-closer" type="button" aria-label="Закрыть"><img src="./assets/img/icon-close.svg" alt="Закрыть" width="24" height="18"></button>
+        <div class="modal__content">
+          <div id="yMapModal" data-center="59.90297506420561, 30.39827949999997" data-coords="59.90297506420561, 30.39827949999997"></div>
+        </div>
+      </div>
+    </div>
     <script async src="https://api-maps.yandex.ru/2.1/?apikey=4aa8fccd-d097-4486-835a-704db2b05b2e&amp;lang=ru_RU"></script>
   </body>
 </html>

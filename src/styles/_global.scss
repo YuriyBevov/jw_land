@@ -45,10 +45,10 @@ a {
   text-decoration: none;
 }
 
-section:not(:last-child) {
+.section:not(:last-child) {
   margin-bottom: var(--main-offset);
 }
 
-section:last-child {
+.section:last-child {
   margin-bottom: 50px;
 }

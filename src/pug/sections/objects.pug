@@ -1,6 +1,6 @@
 include ../mixins/object-preview-card
 
-.objects
+.section.objects
   .lw-container.objects__container
     include ../components/sort
     .objects__header
@@ -17,6 +17,8 @@ include ../mixins/object-preview-card
       })
 
     .objects__map
+      button(type="button" aria-label="Закрыть").objects__map-closer
+        img(src="./assets/img/icon-close.svg" alt="Закрыть" width="24" height="18")
       #yMaps(
         data-center="59.90297506420561, 30.39827949999997" data-coords="59.90297506420561, 30.39827949999997"
         data-img='./assets/img/object-2.jpg' data-link="object-detail.html"

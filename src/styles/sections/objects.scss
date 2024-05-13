@@ -8,9 +8,14 @@
     border-radius: 10px;
     overflow: hidden;
     display: none;
+    position: relative;
 
     &.is-open {
       display: block;
+    }
+
+    &-closer {
+      @extend .closer-btn;
     }
   }
 
